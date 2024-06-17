@@ -8,17 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var countdowns: [String]
+    @State var showCountdownView = false
+
+    init(countdowns: [String] = []) {
+        self.countdowns = countdowns
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(countdowns, id: \.self) {
+                    NavigationLink($0,
+                                   destination: Text($0))
+                }
+            }
+            .navigationTitle("Countdowns")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showCountdownView = true
+                    } label: {
+                        Image(systemName: "hourglass.badge.plus")
+                    }
+                    .tint(.black)
+                    .padding()
+                }
+            }
         }
-        .padding()
+        .sheet(isPresented: $showCountdownView) {
+            
+        }
     }
 }
 
 #Preview {
     ContentView()
 }
+
