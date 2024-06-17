@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct EventView: View {
-    @Binding var showCountdownView: Bool
+struct EventEditView: View {
+    @Binding var showEventView: Bool
+    @Binding var events: [EventViewModel]
     @State var title: String = ""
     @State var endDate: Date = .now
     
@@ -16,14 +17,11 @@ struct EventView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-//                    Text("Create an event for the Time Keeper")
-//                        .font(.headline)
-                    
+
                     TextField("Title", text: $title)
                         .padding(24)
                         .background(Color.background)
                         .cornerRadius(12)
-                    
                     
                     DatePicker("End Date", selection: $endDate)
                         .datePickerStyle(.graphical)
@@ -35,7 +33,7 @@ struct EventView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
-                        showCountdownView = false
+                        showEventView = false
                     } label: {
                         Text("Cancel")
                             .foregroundStyle(Color.red)
@@ -44,18 +42,17 @@ struct EventView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        events.append(EventViewModel(title: title,
+                                                     endDate: endDate))
+                        showEventView = false
                     } label: {
                         Text("Add")
                             .bold()
+                            .foregroundStyle(Color.primary)
                     }
                 }
-                
-//                ToolbarItem(placement: .principal) {
-//                    Text("Time Keeper")
-//                }
             }
-            .tint(.black)
+           
             
             .padding()
             
@@ -64,5 +61,7 @@ struct EventView: View {
 }
 
 #Preview {
-    EventView(showCountdownView: .constant(true))
+    @State var events: [EventViewModel] = []
+    return EventEditView(showEventView: .constant(true),
+              events: $events)
 }
