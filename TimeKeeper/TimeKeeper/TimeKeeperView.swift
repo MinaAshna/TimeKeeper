@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TimeKeeperView: View {
     @State var countdowns: [String]
     @State var showCountdownView = false
 
@@ -34,15 +34,16 @@ struct ContentView: View {
                     .tint(.black)
                     .padding()
                 }
+                
             }
         }
         .sheet(isPresented: $showCountdownView) {
-            
+            CountdownView(showCountdownView: $showCountdownView)            
         }
     }
 }
 
 #Preview {
-    ContentView()
+    TimeKeeperView()
 }
 
