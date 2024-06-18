@@ -13,6 +13,7 @@ import SwiftData
 final class Event: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var title: String
+    var creationDate: Date = Date.now
     var endDate: Date
     
     init(id: UUID = UUID(), title: String, endDate: Date) {
@@ -26,6 +27,6 @@ extension Event {
     static var emptyEvent: Event = Event(title: "", endDate: .now)
     #if DEBUG
     @Transient static var sampleEvents: [Event] = [Event(title: "Event1", endDate: .now),
-                                                 Event(title: "Event2", endDate: .now)]
+                                                   Event(title: "Event2", endDate: .now)]
     #endif
 }

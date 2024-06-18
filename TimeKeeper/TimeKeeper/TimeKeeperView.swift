@@ -18,6 +18,11 @@ struct TimeKeeperView: View {
             List(events) { event in
                 NavigationLink(event.title,
                                destination: EventDetailView(event: event))
+                .swipeActions {
+                    Button("Delete", systemImage: "trash", role: .destructive) {
+                        modelContext.delete(event)
+                    }
+                }
             }
             .navigationTitle("Events")
             .toolbar {
