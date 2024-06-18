@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct NewEventView: View {
+    @Environment(\.modelContext) var modelContext
+    @State private var event = Event.emptyEvent
+    @Binding var isPresentingNewEventView: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            EventView(event: $event)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button {
+                            isPresentingNewEventView = false
+                        } label: {
+                            Text("Cancel")
+                                .foregroundStyle(Color.red)
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button {
+                            isPresentingNewEventView = false
+                            modelContext.insert(event)
+                        } label: {
+                            Text("Add")
+                                .bold()
+                                .foregroundStyle(Color.primary)
+                        }
+                    }
+                }
+        }
     }
 }
 
 #Preview {
-    NewEventView()
+    NewEventView(isPresentingNewEventView: .constant(true))
 }

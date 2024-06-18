@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventView: View {
-    @Binding var event: EventViewModel
+    @Binding var event: Event
     
     var body: some View {
         NavigationStack {
@@ -31,5 +31,5 @@ struct EventView: View {
 }
 
 #Preview {
-    return EventView(event: .constant(EventViewModel.sampleEvents[0]))
+    return EventView(event: .constant(Event.sampleEvents[0]))
 }

@@ -6,39 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TimeKeeperView: View {
-    @State var countdowns: [String]
-    @State var showCountdownView = false
-
-    init(countdowns: [String] = []) {
-        self.countdowns = countdowns
-    }
+    @Environment(\.modelContext) var modelContext
+    @Query var events: [Event]
+    @State var isPresentingNewEventView = false
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(countdowns, id: \.self) {
-                    NavigationLink($0,
-                                   destination: Text($0))
-                }
+            List(events) { event in
+                NavigationLink(event.title,
+                               destination: EventDetailView(event: event))
             }
-            .navigationTitle("Countdowns")
+            .navigationTitle("Events")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showCountdownView = true
+                        isPresentingNewEventView = true
                     } label: {
                         Image(systemName: "hourglass.badge.plus")
+                            .tint(.primary)
                     }
                     .tint(.black)
                     .padding()
                 }
-                
             }
         }
-        .sheet(isPresented: $showCountdownView) {
-            CountdownView(showCountdownView: $showCountdownView)            
+        .sheet(isPresented: $isPresentingNewEventView) {
+            NewEventView(isPresentingNewEventView: $isPresentingNewEventView)
         }
     }
 }

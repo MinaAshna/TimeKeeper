@@ -7,29 +7,25 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
-//@Observable
-struct Event: Identifiable {
-    var id: UUID = UUID()
+@Model
+final class Event: Identifiable {
+    @Attribute(.unique) var id: UUID = UUID()
     var title: String
     var endDate: Date
-//    var timeLeft: Date {
-//        calculateTheTimeLeft()
-//    }
+    
+    init(id: UUID = UUID(), title: String, endDate: Date) {
+        self.id = id
+        self.title = title
+        self.endDate = endDate
+    }
+}
+
+extension Event {
     static var emptyEvent: Event = Event(title: "", endDate: .now)
     #if DEBUG
-    static var sampleEvents: [Event] = [Event(title: "Event1", endDate: .now),
+    @Transient static var sampleEvents: [Event] = [Event(title: "Event1", endDate: .now),
                                                  Event(title: "Event2", endDate: .now)]
     #endif
-    
-//    init(id: UUID = UUID(), title: String, endDate: Date) {
-//        self.id = id
-//        self.title = title
-//        self.endDate = endDate
-//    }
-    
-//    
-//    func calculateTheTimeLeft() -> Date {
-//        return Date()
-//    }
 }

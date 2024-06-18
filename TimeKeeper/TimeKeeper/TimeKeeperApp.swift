@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct TimeKeeperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimeKeeperView()
         }
+        .modelContainer(for: Event.self)
     }
 }
