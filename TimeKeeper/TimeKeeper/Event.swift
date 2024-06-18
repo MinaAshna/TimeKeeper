@@ -26,7 +26,9 @@ final class Event: Identifiable {
 extension Event {
     static var emptyEvent: Event = Event(title: "", endDate: .now)
     #if DEBUG
-    @Transient static var sampleEvents: [Event] = [Event(title: "Event1", endDate: .now),
-                                                   Event(title: "Event2", endDate: .now)]
+    @Transient static var sampleEvents: [Event] = [Event(title: "Event1",
+                                                         endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!),
+                                                   Event(title: "Event2",
+                                                         endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
     #endif
 }

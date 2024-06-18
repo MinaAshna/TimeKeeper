@@ -45,6 +45,7 @@ struct TimeKeeperView: View {
 }
 
 #Preview {
-    TimeKeeperView()
+    return TimeKeeperView()
+        .modelContainer(DataController.previewContainer)
 }
 

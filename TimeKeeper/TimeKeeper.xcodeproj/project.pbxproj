@@ -18,6 +18,8 @@
 		B465B0BB2C201E0B00C734E9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0BA2C201E0B00C734E9 /* Event.swift */; };
 		B465B0BD2C2053D900C734E9 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0BC2C2053D900C734E9 /* EventDetailView.swift */; };
 		B465B0BF2C2055F300C734E9 /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0BE2C2055F300C734E9 /* NewEventView.swift */; };
+		B465B0C52C21A5EB00C734E9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C42C21A5EB00C734E9 /* DataController.swift */; };
+		B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C62C21DAA700C734E9 /* Offset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B465B0BA2C201E0B00C734E9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B465B0BC2C2053D900C734E9 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		B465B0BE2C2055F300C734E9 /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
+		B465B0C42C21A5EB00C734E9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B465B0C62C21DAA700C734E9 /* Offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		B465B08C2C20044E00C734E9 /* TimeKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				B465B0C32C21A5DE00C734E9 /* Helper */,
 				B465B08D2C20044E00C734E9 /* TimeKeeperApp.swift */,
 				B465B08F2C20044E00C734E9 /* TimeKeeperView.swift */,
 				B465B0912C20044F00C734E9 /* Assets.xcassets */,
@@ -112,6 +117,7 @@
 				B465B0BA2C201E0B00C734E9 /* Event.swift */,
 				B465B0BC2C2053D900C734E9 /* EventDetailView.swift */,
 				B465B0BE2C2055F300C734E9 /* NewEventView.swift */,
+				B465B0C62C21DAA700C734E9 /* Offset.swift */,
 			);
 			path = TimeKeeper;
 			sourceTree = "<group>";
@@ -139,6 +145,14 @@
 				B465B0AB2C20044F00C734E9 /* TimeKeeperUITestsLaunchTests.swift */,
 			);
 			path = TimeKeeperUITests;
+			sourceTree = "<group>";
+		};
+		B465B0C32C21A5DE00C734E9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B465B0C42C21A5EB00C734E9 /* DataController.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,11 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B465B0C52C21A5EB00C734E9 /* DataController.swift in Sources */,
 				B465B0BB2C201E0B00C734E9 /* Event.swift in Sources */,
 				B465B0BD2C2053D900C734E9 /* EventDetailView.swift in Sources */,
 				B465B0B92C200CA500C734E9 /* EventView.swift in Sources */,
 				B465B0BF2C2055F300C734E9 /* NewEventView.swift in Sources */,
 				B465B0902C20044E00C734E9 /* TimeKeeperView.swift in Sources */,
+				B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */,
 				B465B08E2C20044E00C734E9 /* TimeKeeperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
