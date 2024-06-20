@@ -15,8 +15,10 @@ class DataController {
             let config = ModelConfiguration(isStoredInMemoryOnly: true)
             let container = try ModelContainer(for: Event.self, configurations: config)
 
+            
             for i in 1...9 {
-                let event = Event(title: "Example Event \(i)", endDate: .now)
+                let event = Event(title: "Example Event \(i)",
+                                  endDate: Calendar.current.date(byAdding: .day, value: i, to: .now)!)
                 container.mainContext.insert(event)
             }
 
