@@ -170,3 +170,62 @@ struct EventDetailView: View {
         EventDetailView(event: Event.sampleEvents[0])
     }
 }
+
+//struct TimerView: View {
+//    @State var offset: Offset
+//    
+//    var body: some View {
+//        HStack {
+//            if offset.year > 0 {
+//                VStack {
+//                    Text("Year")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.year.description)
+//                        .font(.headline)
+//                }
+//            }
+//            if offset.month > 0 {
+//                VStack {
+//                    Text("Month")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.month.description)
+//                        .font(.headline)
+//                }
+//            }
+//            if offset.day > 0 {
+//                VStack {
+//                    Text("Day")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.day.description)
+//                        .font(.headline)
+//                }
+//            }
+//            if offset.hour > 0 {
+//                VStack {
+//                    Text("Hour")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.hour.description)
+//                        .font(.headline)
+//                }
+//            }
+//            if offset.minute > 0 {
+//                VStack {
+//                    Text("Minute")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.minute.description)
+//                        .font(.headline)
+//                }
+//            }
+//            if offset.second > 0 {
+//                VStack {
+//                    Text("Second")
+//                        .foregroundStyle(Color.gray)
+//                    Text(offset.second.description)
+//                        .font(.headline)
+//                        .contentTransition(.numericText(countsDown: true))
+//                }
+//            }
+//        }
+//        .padding()
+//    }
+//}
