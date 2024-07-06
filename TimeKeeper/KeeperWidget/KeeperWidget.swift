@@ -2,7 +2,7 @@
 //  KeeperWidget.swift
 //  KeeperWidget
 //
-//  Created by Mina Ashna on 30/06/2024.
+//  Created by Mina Ashna on 06/07/2024.
 //
 
 import WidgetKit
@@ -46,9 +46,12 @@ struct KeeperWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            EventDetailView(event: .sampleEvents.first!)
+            Text("Time:")
+            Text(entry.date, style: .time)
+
+            Text("Favorite Emoji:")
+            Text(entry.configuration.favoriteEmoji)
         }
-       
     }
 }
 
@@ -77,7 +80,7 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemLarge) {
+#Preview(as: .systemSmall) {
     KeeperWidget()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
