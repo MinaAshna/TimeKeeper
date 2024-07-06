@@ -2,7 +2,7 @@
 //  KeeperWidgetControl.swift
 //  KeeperWidget
 //
-//  Created by Mina Ashna on 30/06/2024.
+//  Created by Mina Ashna on 06/07/2024.
 //
 
 import AppIntents
@@ -10,7 +10,7 @@ import SwiftUI
 import WidgetKit
 
 struct KeeperWidgetControl: ControlWidget {
-    static let kind: String = "com.minaashna.TimeKeeper.KeeperWidget"
+    static let kind: String = "com.impact.betaupdates.KeeperWidget"
 
     var body: some ControlWidgetConfiguration {
         AppIntentControlConfiguration(
