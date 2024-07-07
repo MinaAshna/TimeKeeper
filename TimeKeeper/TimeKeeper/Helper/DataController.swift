@@ -16,9 +16,19 @@ class DataController {
             let container = try ModelContainer(for: Event.self, configurations: config)
 
             
-            for i in 1...9 {
+            for i in 1...4 {
                 let event = Event(title: "Example Event \(i)",
                                   endDate: Calendar.current.date(byAdding: .day, value: i, to: .now)!)
+                container.mainContext.insert(event)
+            }
+            for i in 1...3 {
+                let event = Event(title: "Example Event \(i)",
+                                  endDate: Calendar.current.date(byAdding: .year, value: i, to: .now)!)
+                container.mainContext.insert(event)
+            }
+            for i in 1...2 {
+                let event = Event(title: "Example Event \(i)",
+                                  endDate: Calendar.current.date(byAdding: .month, value: i, to: .now)!)
                 container.mainContext.insert(event)
             }
 

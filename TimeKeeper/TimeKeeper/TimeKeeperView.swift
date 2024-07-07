@@ -15,15 +15,35 @@ struct TimeKeeperView: View {
     
     var body: some View {
         NavigationStack {
-            List(events) { event in
-                NavigationLink(event.title,
-                               destination: EventDetailView(event: event))
-                .swipeActions {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        modelContext.delete(event)
+            ScrollView {
+                ForEach(events, id:\.id) { event in
+                    HStack {
+                        
+                        NavigationLink(destination: EventDetailView(event: event)) {
+                            EventCardView(event: event)
+                        }
+                        .tint(.black)
+                        
+                        Spacer()
                     }
+                    .padding([.leading, .trailing], 20)
+                    .padding(.bottom, 10)
+                    
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 10)
             }
+        
+
+//            List(events) { event in
+//                NavigationLink(event.title,
+//                               destination: EventDetailView(event: event))
+//                .swipeActions {
+//                    Button("Delete", systemImage: "trash", role: .destructive) {
+//                        modelContext.delete(event)
+//                    }
+//                }
+//            }
             .navigationTitle("Events")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
