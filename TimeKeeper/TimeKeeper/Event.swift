@@ -8,18 +8,25 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import OSLog
+
+
+private let logger = Logger(subsystem: "TimeKeeperData", category: "Event")
 
 @Model
 final class Event: Identifiable {
-    @Attribute(.unique) let id: UUID = UUID()
+    @Attribute(.unique) var id: UUID = UUID()
     var title: String
+    var emoji: String?
     var creationDate: Date = Date.now
     var endDate: Date
     
-    init(title: String, creationDate: Date = Date.now, endDate: Date) {
+    init(title: String, emoji: String? = "", creationDate: Date = Date.now, endDate: Date) {
         self.title = title
+        self.emoji = emoji
         self.creationDate = creationDate
         self.endDate = endDate
+        logger.notice("Event \(self.id) has been created with title: '\(self.title)'")
     }
 }
 
@@ -28,9 +35,11 @@ extension Event {
     
 #if DEBUG
     @Transient nonisolated(unsafe) static let sampleEvents: [Event] = [Event(title: "Event1",
-                                                         creationDate:Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
+                                                                             emoji: "🤩",
+                                                         creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
                                                          endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!),
                                                    Event(title: "Event2",
+                                                         emoji: "😊",
                                                          endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
     #endif
 }

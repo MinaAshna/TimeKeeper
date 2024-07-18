@@ -16,7 +16,7 @@ struct EventView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     TextField("Title", text: $event.title)
                         .padding(24)
-                        .background(Color.background)
+//                        .background(Color.appBackground)
                         .cornerRadius(12)
                     
                     DatePicker("End Date",

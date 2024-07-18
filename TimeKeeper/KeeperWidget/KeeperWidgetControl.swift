@@ -39,12 +39,12 @@ extension KeeperWidgetControl {
 
     struct Provider: AppIntentControlValueProvider {
         func previewValue(configuration: TimerConfiguration) -> Value {
-            KeeperWidgetControl.Value(isRunning: false, name: configuration.timerName)
+            KeeperWidgetControl.Value(isRunning: false, name: configuration.timerName ?? "name")
         }
 
         func currentValue(configuration: TimerConfiguration) async throws -> Value {
             let isRunning = true // Check if the timer is running
-            return KeeperWidgetControl.Value(isRunning: isRunning, name: configuration.timerName)
+            return KeeperWidgetControl.Value(isRunning: isRunning, name: configuration.timerName ?? "name")
         }
     }
 }
@@ -53,7 +53,7 @@ struct TimerConfiguration: ControlConfigurationIntent {
     static var title: LocalizedStringResource { "Timer Name Configuration" }
 
     @Parameter(title: "Timer Name")
-    var timerName: String
+    var timerName: String?
 }
 
 struct StartTimerIntent: SetValueIntent {

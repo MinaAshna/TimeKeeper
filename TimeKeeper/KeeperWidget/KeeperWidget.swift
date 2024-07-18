@@ -49,13 +49,14 @@ struct KeeperWidgetEntryView : View {
     var entry: EventStatusProvider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+        EventCardView(event: entry.event)
+//        VStack {
+//            Text("Time:")
+//            Text(entry.date, style: .time)
+//
+//            Text("Favorite Emoji:")
+//            Text(entry.configuration.favoriteEmoji)
+//        }
     }
 }
 
@@ -69,7 +70,7 @@ struct KeeperWidget: Widget {
         }
         .configurationDisplayName("Time Keepper Widget")
         .description("Shows the selected countdown event by the user")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemMedium])
     }
 }
 
@@ -87,9 +88,11 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
     KeeperWidget()
 } timeline: {
-    EventStatusEntry(event: .sampleEvents.first!, date: .now, configuration: .smiley)
-    EventStatusEntry(event: .sampleEvents.first!, date: .now, configuration: .starEyes)
+    EventStatusEntry(event: .sampleEvents.first!,
+                     date: .now, configuration: .smiley)
+    EventStatusEntry(event: .sampleEvents.first!,
+                     date: .now, configuration: .starEyes)
 }

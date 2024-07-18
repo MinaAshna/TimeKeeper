@@ -16,28 +16,49 @@ struct TimeKeeperView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(events, id:\.id) { event in
-                    HStack {
-                        
-                        NavigationLink(destination: EventDetailView(event: event)) {
-                            EventCardView(event: event)
+                LazyVGrid(columns: [.init(.adaptive(minimum: 300))]) {
+                    ForEach(events, id:\.id) { event in
+                        HStack {
+                            NavigationLink(destination: EventDetailView(event: event)) {
+                                EventCardView(event: event)
+                            }
+                            .tint(.appText)
                         }
-                        .tint(.black)
-                        
-                        Spacer()
                     }
-                    .padding([.leading, .trailing], 20)
-                    .padding(.bottom, 10)
-                    
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.top, 10)
+                .padding([.leading, .trailing], 8)
             }
+//            ScrollView {
+//                ForEach(events, id:\.id) { event in
+//                    HStack {
+//                        NavigationLink(destination: EventDetailView(event: event)) {
+//                            EventCardView(event: event)
+//                        }
+//                        .tint(.black)
+//                        .onLongPressGesture {
+//                            
+//                        }
+//                        
+//                        Spacer()
+//                    }
+//                    .padding([.leading, .trailing], 20)
+//                    .padding(.bottom, 10)
+//                    
+//                }
+//                .frame(maxWidth: .infinity)
+//                .padding(.top, 10)
+//                
+//            }
+//            .background(Color.appBackground)
+          
         
 
 //            List(events) { event in
-//                NavigationLink(event.title,
-//                               destination: EventDetailView(event: event))
+//                NavigationLink(destination: EventDetailView(event: event)) {
+//                    EventCardView(event: event)
+//                        .padding()
+//                }
+//                .tint(.black)
 //                .swipeActions {
 //                    Button("Delete", systemImage: "trash", role: .destructive) {
 //                        modelContext.delete(event)
