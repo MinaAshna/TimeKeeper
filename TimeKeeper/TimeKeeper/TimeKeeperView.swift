@@ -28,28 +28,6 @@ struct TimeKeeperView: View {
                 }
                 .padding([.leading, .trailing], 8)
             }
-//            ScrollView {
-//                ForEach(events, id:\.id) { event in
-//                    HStack {
-//                        NavigationLink(destination: EventDetailView(event: event)) {
-//                            EventCardView(event: event)
-//                        }
-//                        .tint(.black)
-//                        .onLongPressGesture {
-//                            
-//                        }
-//                        
-//                        Spacer()
-//                    }
-//                    .padding([.leading, .trailing], 20)
-//                    .padding(.bottom, 10)
-//                    
-//                }
-//                .frame(maxWidth: .infinity)
-//                .padding(.top, 10)
-//                
-//            }
-//            .background(Color.appBackground)
           
         
 

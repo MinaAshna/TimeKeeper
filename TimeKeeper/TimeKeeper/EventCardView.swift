@@ -100,23 +100,31 @@ struct EventCardView: View {
             .foregroundStyle(Color.appText)
        
             
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(0..<6) { _ in
-                        RoundedRectangle(cornerRadius: 2)
-                            .fill(Color.appGreen)
-                            .stroke(.gray, lineWidth: 1)
-                            .frame(height: 12)
-                    }
-                }
-            }
-            .frame(height: 12)
-
-            HStack {
-                
-
-            }
+//            ScrollView {
+//                LazyVGrid(columns: columns, spacing: 8) {
+//                    ForEach(0..<6) { _ in
+//                        RoundedRectangle(cornerRadius: 2)
+//                            .fill(Color.appGreen)
+//                            .stroke(.gray, lineWidth: 1)
+//                            .frame(height: 12)
+//                    }
+//                }
+//            }
+//            .frame(height: 12)
             
+
+            Gauge(
+                value: totalSeconds() - secondsLeft(),
+                in: 0...totalSeconds(),
+                label: { },
+                currentValueLabel: {
+
+                }
+                
+            )
+            .tint(Color.appGreen)
+                      
+
             HStack {
                 Spacer()
                 
@@ -127,10 +135,7 @@ struct EventCardView: View {
 
         }
         .background(Color.appWhite)
-//        .frame(maxWidth: .infinity)
         .padding()
-        
-        
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.gray, lineWidth: 1)
@@ -147,6 +152,7 @@ struct EventCardView: View {
         }
     }
     
+
     func diff() -> DateComponents {
         let diff = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: .now, to: event.endDate)
         return diff
@@ -165,6 +171,10 @@ struct EventCardView: View {
     
     func secondsLeft() -> Double {
         let diff = event.endDate.timeIntervalSince(.now)
+        return round(diff)
+    }
+    func totalSeconds() -> Double {
+        let diff = event.endDate.timeIntervalSince(event.creationDate)
         return round(diff)
     }
 }
