@@ -29,9 +29,8 @@ struct EventDetailView: View {
                 HStack {
                     Text(event.creationDate, style: .date)
                     Spacer()
-                    Text(event.endDate, style: .date)
                 }
-                .padding()
+                .padding(.leading)
                 
                 Gauge(
                     value: totalSeconds() - secondsLeft(),
@@ -43,6 +42,15 @@ struct EventDetailView: View {
                     
                 )
                 .padding()
+                .tint(Color.appGreen)
+                // Good for widget
+//                .gaugeStyle(.accessoryCircular)
+                
+                HStack {
+                    Spacer()
+                    Text(event.endDate, style: .date)
+                }
+                .padding([.trailing])
                 
                 HStack {
                     if offset.year > 0 {
@@ -85,7 +93,7 @@ struct EventDetailView: View {
                                 .font(.headline)
                         }
                     }
-                    if offset.second > 0 {
+                    
                         VStack {
                             Text("Second")
                                 .foregroundStyle(Color.gray)
@@ -93,7 +101,9 @@ struct EventDetailView: View {
                                 .font(.headline)
                                 .contentTransition(.numericText(countsDown: true))
                         }
-                    }
+                    
+                    
+                    Spacer()
                 }
                 .padding()
             }

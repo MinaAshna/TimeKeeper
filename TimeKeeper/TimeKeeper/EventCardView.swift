@@ -1,9 +1,10 @@
 //
-//  EventCardView.swift
+//  ListRow.swift
 //  TimeKeeper
 //
-//  Created by Mina Ashna on 06/07/2024.
+//  Created by Mina Ashna on 24/07/2024.
 //
+
 
 import SwiftUI
 import SwiftData
@@ -31,108 +32,103 @@ struct EventCardView: View {
             
             Divider()
             
-            HStack {
+            VStack(spacing: 16) {
                 
-                if offset.year > 0 {
-                    HStack(spacing: 2) {
-                        Text(offset.year.description)
-                            .font(.title3)
-                            .bold()
-                        Text("y")
-                            .font(.headline)
-                            .foregroundStyle(Color.gray)
+             
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        if offset.year > 0 {
+                            HStack(spacing: 2) {
+                                Text(offset.year.description)
+                                    .font(.title3)
+                                    .bold()
+                                Text("y")
+                                    .font(.headline)
+                                    .foregroundStyle(Color.gray)
+                            }
+                        }
+                        if offset.month > 0 {
+                            HStack(spacing: 2) {
+                                Text(offset.month.description)
+                                    .font(.title3)
+                                    .bold()
+                                Text("m")
+                                    .font(.headline)
+                                    .foregroundStyle(Color.gray)
+                            }
+                        }
+                        if offset.day > 0 {
+                            HStack(spacing: 2) {
+                                Text(offset.day.description)
+                                    .font(.title3)
+                                    .bold()
+                                Text("d")
+                                    .font(.headline)
+                                    .foregroundStyle(Color.gray)
+                            }
+                        }
+                        if offset.hour > 0 {
+                            HStack(spacing: 2) {
+                                Text(offset.hour.description)
+                                    .font(.title3)
+                                    .bold()
+                                Text("h")
+                                    .font(.headline)
+                                    .foregroundStyle(Color.gray)
+                            }
+                        }
+                        if offset.minute > 0 {
+                            HStack(spacing: 2) {
+                                Text(offset.minute.description)
+                                    .font(.title3)
+                                    .bold()
+                                Text("m")
+                                    .font(.headline)
+                                    .foregroundStyle(Color.gray)
+                            }
+                        }
+                        
+                        HStack(spacing: 2) {
+                            Text(offset.second.description)
+                                .font(.title3)
+                                .bold()
+                                .contentTransition(.numericText(countsDown: true))
+                            Text("s")
+                                .font(.headline)
+                                .foregroundStyle(Color.gray)
+                        }
                     }
-                }
-                if offset.month > 0 {
-                    HStack(spacing: 2) {
-                        Text(offset.month.description)
-                            .font(.title3)
-                            .bold()
-                        Text("m")
-                            .font(.headline)
-                            .foregroundStyle(Color.gray)
+                    .multilineTextAlignment(.leading)
+                    .frame(height: .infinity)
+                                       
+                    Gauge(
+                        value: totalSeconds() - secondsLeft(),
+                        in: 0...totalSeconds(),
+                        label: {
+                            
+                        },
+                        currentValueLabel: {
+                        }
+                        
+                    )
+                    .tint(Color.appGreen)
+    //                .gaugeStyle(.accessoryCircularCapacity)
+                    
+                
+                    HStack {
+                        Spacer()
+                        Text(event.endDate, style: .date)
+                            .foregroundStyle(Color.appText)
                     }
-                }
-                if offset.day > 0 {
-                    HStack(spacing: 2) {
-                        Text(offset.day.description)
-                            .font(.title3)
-                            .bold()
-                        Text("d")
-                            .font(.headline)
-                            .foregroundStyle(Color.gray)
-                    }
-                }
-                if offset.hour > 0 {
-                    HStack(spacing: 2) {
-                        Text(offset.hour.description)
-                            .font(.title3)
-                            .bold()
-                        Text("h")
-                            .font(.headline)
-                            .foregroundStyle(Color.gray)
-                    }
-                }
-                if offset.minute > 0 {
-                    HStack(spacing: 2) {
-                        Text(offset.minute.description)
-                            .font(.title3)
-                            .bold()
-                        Text("m")
-                            .font(.headline)
-                            .foregroundStyle(Color.gray)
-                    }
+                    
+
                 }
                 
-                HStack(spacing: 2) {
-                    Text(offset.second.description)
-                        .font(.title3)
-                        .bold()
-                        .contentTransition(.numericText(countsDown: true))
-                    Text("s")
-                        .font(.headline)
-                        .foregroundStyle(Color.gray)
-                }
-                
-                Spacer()
-            }
-            .padding(.bottom, 8)
-            .foregroundStyle(Color.appText)
-       
             
-//            ScrollView {
-//                LazyVGrid(columns: columns, spacing: 8) {
-//                    ForEach(0..<6) { _ in
-//                        RoundedRectangle(cornerRadius: 2)
-//                            .fill(Color.appGreen)
-//                            .stroke(.gray, lineWidth: 1)
-//                            .frame(height: 12)
-//                    }
-//                }
-//            }
-//            .frame(height: 12)
-            
-
-            Gauge(
-                value: totalSeconds() - secondsLeft(),
-                in: 0...totalSeconds(),
-                label: { },
-                currentValueLabel: {
-
-                }
-                
-            )
-            .tint(Color.appGreen)
-                      
-
-            HStack {
-                Spacer()
-                
-                Text(event.endDate, style: .date)
             }
+            .padding([.top, .bottom], 8)
             .foregroundStyle(Color.appText)
-            .padding(.top)
-
+            
         }
         .background(Color.appWhite)
         .padding()
@@ -145,8 +141,8 @@ struct EventCardView: View {
         )
         .background(Color.appWhite)
         .cornerRadius(8) /// make the background rounded
-        .padding([.leading, .trailing], 16)
-        .padding([.top, .bottom], 4)
+//        .padding([.leading, .trailing], 16)
+//        .padding([.top, .bottom], 4)
         .onReceive(timer) { _ in
             countdown()
         }

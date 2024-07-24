@@ -30,11 +30,11 @@
 		B465B0BF2C2055F300C734E9 /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0BE2C2055F300C734E9 /* NewEventView.swift */; };
 		B465B0C52C21A5EB00C734E9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C42C21A5EB00C734E9 /* DataController.swift */; };
 		B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C62C21DAA700C734E9 /* Offset.swift */; };
-		B47371A42C39D4F700F1BCD7 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47371A32C39D4F700F1BCD7 /* EventCardView.swift */; };
-		B47371A52C3AC8D300F1BCD7 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47371A32C39D4F700F1BCD7 /* EventCardView.swift */; };
 		B47371A62C3AC8E100F1BCD7 /* Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C62C21DAA700C734E9 /* Offset.swift */; };
 		B4A6BC822C46EA65007047C9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC812C46EA65007047C9 /* Color+Extension.swift */; };
 		B4A6BC832C470425007047C9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC812C46EA65007047C9 /* Color+Extension.swift */; };
+		B4A6BC852C515E33007047C9 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC842C515E26007047C9 /* EventCardView.swift */; };
+		B4A6BC862C516514007047C9 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC842C515E26007047C9 /* EventCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,8 +110,8 @@
 		B465B0BE2C2055F300C734E9 /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
 		B465B0C42C21A5EB00C734E9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B465B0C62C21DAA700C734E9 /* Offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offset.swift; sourceTree = "<group>"; };
-		B47371A32C39D4F700F1BCD7 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		B4A6BC812C46EA65007047C9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		B4A6BC842C515E26007047C9 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		B4CF07702C3ADEA800A34CF4 /* KeeperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeeperWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +214,7 @@
 		B465B08C2C20044E00C734E9 /* TimeKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				B4A6BC842C515E26007047C9 /* EventCardView.swift */,
 				B4A6BC802C46EA51007047C9 /* Extension */,
 				B465B0C32C21A5DE00C734E9 /* Helper */,
 				B465B08D2C20044E00C734E9 /* TimeKeeperApp.swift */,
@@ -226,7 +227,6 @@
 				B465B0BC2C2053D900C734E9 /* EventDetailView.swift */,
 				B465B0BE2C2055F300C734E9 /* NewEventView.swift */,
 				B465B0C62C21DAA700C734E9 /* Offset.swift */,
-				B47371A32C39D4F700F1BCD7 /* EventCardView.swift */,
 			);
 			path = TimeKeeper;
 			sourceTree = "<group>";
@@ -433,10 +433,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B47371A52C3AC8D300F1BCD7 /* EventCardView.swift in Sources */,
 				B4A6BC832C470425007047C9 /* Color+Extension.swift in Sources */,
 				B464912C2C39846400152BFD /* KeeperWidgetLiveActivity.swift in Sources */,
 				B46491322C39846400152BFD /* KeeperWidget.swift in Sources */,
+				B4A6BC862C516514007047C9 /* EventCardView.swift in Sources */,
 				B46491342C39846400152BFD /* AppIntent.swift in Sources */,
 				B464912E2C39846400152BFD /* KeeperWidgetBundle.swift in Sources */,
 				B40438AA2C39B6BF00A0921F /* Event.swift in Sources */,
@@ -453,10 +453,10 @@
 				B4A6BC822C46EA65007047C9 /* Color+Extension.swift in Sources */,
 				B465B0BB2C201E0B00C734E9 /* Event.swift in Sources */,
 				B465B0BD2C2053D900C734E9 /* EventDetailView.swift in Sources */,
-				B47371A42C39D4F700F1BCD7 /* EventCardView.swift in Sources */,
 				B465B0B92C200CA500C734E9 /* EventView.swift in Sources */,
 				B465B0BF2C2055F300C734E9 /* NewEventView.swift in Sources */,
 				B465B0902C20044E00C734E9 /* TimeKeeperView.swift in Sources */,
+				B4A6BC852C515E33007047C9 /* EventCardView.swift in Sources */,
 				B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */,
 				B465B08E2C20044E00C734E9 /* TimeKeeperApp.swift in Sources */,
 			);
