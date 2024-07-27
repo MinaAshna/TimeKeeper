@@ -13,10 +13,6 @@ struct EventCardView: View {
     var event: Event
     @State private var offset: Offset = Offset()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let columns = [
-        GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 8,
-                           maximum: UIScreen.main.bounds.width / 4))
-        ]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,8 +29,6 @@ struct EventCardView: View {
             Divider()
             
             VStack(spacing: 16) {
-                
-             
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         if offset.year > 0 {
@@ -44,7 +38,7 @@ struct EventCardView: View {
                                     .bold()
                                 Text("y")
                                     .font(.headline)
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                         if offset.month > 0 {
@@ -54,7 +48,7 @@ struct EventCardView: View {
                                     .bold()
                                 Text("m")
                                     .font(.headline)
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                         if offset.day > 0 {
@@ -64,7 +58,7 @@ struct EventCardView: View {
                                     .bold()
                                 Text("d")
                                     .font(.headline)
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                         if offset.hour > 0 {
@@ -74,7 +68,7 @@ struct EventCardView: View {
                                     .bold()
                                 Text("h")
                                     .font(.headline)
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                         if offset.minute > 0 {
@@ -84,7 +78,7 @@ struct EventCardView: View {
                                     .bold()
                                 Text("m")
                                     .font(.headline)
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.appTextSecondary)
                             }
                         }
                         
@@ -95,7 +89,7 @@ struct EventCardView: View {
                                 .contentTransition(.numericText(countsDown: true))
                             Text("s")
                                 .font(.headline)
-                                .foregroundStyle(Color.gray)
+                                .foregroundStyle(Color.appTextSecondary)
                         }
                     }
                     .multilineTextAlignment(.leading)
@@ -130,7 +124,6 @@ struct EventCardView: View {
             .foregroundStyle(Color.appText)
             
         }
-        .background(Color.appWhite)
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 8)
@@ -141,8 +134,6 @@ struct EventCardView: View {
         )
         .background(Color.appWhite)
         .cornerRadius(8) /// make the background rounded
-//        .padding([.leading, .trailing], 16)
-//        .padding([.top, .bottom], 4)
         .onReceive(timer) { _ in
             countdown()
         }

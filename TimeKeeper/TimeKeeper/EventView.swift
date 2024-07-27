@@ -15,8 +15,9 @@ struct EventView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     TextField("Title", text: $event.title)
-                        .padding(24)
-//                        .background(Color.appBackground)
+                        .padding(16)
+                        .frame(height: 60)
+                        .background(Color.appGray)
                         .cornerRadius(12)
                     
                     DatePicker("End Date",
