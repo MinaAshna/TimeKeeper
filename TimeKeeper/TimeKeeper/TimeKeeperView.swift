@@ -13,11 +13,17 @@ struct TimeKeeperView: View {
     @Query var events: [Event]
     @State var isPresentingNewEventView = false
     @State private var editingEvent = Event.emptyEvent
+    @State private var newEvent = Event.emptyEvent
     @State private var isPresentingEditView = false
+    @State private var editingIndex: IndexSet = .init()
     
+    init() {
+        print("init")
+    }
     var body: some View {
         NavigationStack {
-            List(events) { event in
+            List {
+                ForEach(events) { event in
                     Button {
                     } label: {
                         EventCardView(event: event)
@@ -27,17 +33,23 @@ struct TimeKeeperView: View {
                     .buttonStyle(.borderless)
                     .swipeActions {
                         Button("Delete", systemImage: "trash", role: .destructive) {
-                            
+                            modelContext.delete(event)
+                            do {
+                                try modelContext.save()
+                            } catch {
+                                print(error)
+                            }
                         }
                         Button("Edit", systemImage: "pencil", role: .none) {
-                            editingEvent = event
                             isPresentingEditView = true
+                            editingEvent = event
                         }
                         .tint(Color.appGreen)
                     }
                     .listRowSeparatorTint(Color.appGray, edges: .all)
-                    .listRowBackground(Color.clear) // Change Row Color
-                    .listRowSeparator(.hidden) //hide Seprator
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                }
             }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
@@ -46,7 +58,7 @@ struct TimeKeeperView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        editingEvent = .emptyEvent
+                        newEvent = .emptyEvent
                         isPresentingNewEventView = true
                     } label: {
                         Image(systemName: "hourglass.badge.plus")
@@ -59,7 +71,7 @@ struct TimeKeeperView: View {
         }
         .sheet(isPresented: $isPresentingNewEventView) {
             NavigationStack {
-                EventView(event: $editingEvent)
+                EventView(event: $newEvent)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
@@ -72,6 +84,12 @@ struct TimeKeeperView: View {
                         
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
+                                modelContext.insert(newEvent)
+                                do {
+                                    try modelContext.save()
+                                } catch {
+                                    print(error)
+                                }
                                 isPresentingNewEventView = false
                             } label: {
                                 Text("Done")
@@ -100,6 +118,11 @@ struct TimeKeeperView: View {
                                 isPresentingEditView = false
                                 events.first(where: { $0.id == editingEvent.id } )?.title = editingEvent.title
                                 events.first(where: { $0.id == editingEvent.id } )?.endDate = editingEvent.endDate
+                                do {
+                                    try modelContext.save()
+                                } catch {
+                                    print(error)
+                                }
                             } label: {
                                 Text("Done")
                                     .bold()
@@ -110,6 +133,18 @@ struct TimeKeeperView: View {
             }
         }
     }
+    
+//    func deleteEvent(_ indexSet: IndexSet) {
+//        for index in indexSet {
+//            let event = events[index]
+//            modelContext.delete(event)
+//            do {
+//                try modelContext.save()
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
 }
 
 #Preview {

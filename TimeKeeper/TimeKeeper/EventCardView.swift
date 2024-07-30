@@ -93,7 +93,7 @@ struct EventCardView: View {
                         }
                     }
                     .multilineTextAlignment(.leading)
-                    .frame(height: .infinity)
+                    .frame(maxHeight: .infinity)
                                        
                     Gauge(
                         value: totalSeconds() - secondsLeft(),

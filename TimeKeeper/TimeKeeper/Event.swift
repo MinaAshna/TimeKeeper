@@ -31,7 +31,7 @@ final class Event: Identifiable {
 }
 
 extension Event {
-    nonisolated(unsafe) static let emptyEvent: Event = Event(title: "", endDate: .now)
+    @MainActor static let emptyEvent: Event = Event(title: "", endDate: .now)
     
 #if DEBUG
     @Transient nonisolated(unsafe) static let sampleEvents: [Event] = [Event(title: "Event1",

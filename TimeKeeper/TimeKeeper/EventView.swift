@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EventView: View {
     @Binding var event: Event
@@ -14,7 +15,7 @@ struct EventView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    TextField("Title", text: $event.title)
+                    TextField("Title", text: $event.title, axis: .vertical)
                         .padding(16)
                         .frame(height: 60)
                         .background(Color.appGray)
@@ -22,7 +23,7 @@ struct EventView: View {
                     
                     DatePicker("End Date",
                                selection: $event.endDate)
-                        .datePickerStyle(.graphical)
+                    .datePickerStyle(.graphical)
                     
                     Spacer()
                 }
@@ -33,5 +34,12 @@ struct EventView: View {
 }
 
 #Preview {
-    return EventView(event: .constant(Event.sampleEvents[0]))
+    let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Event.self, configurations: configuration)
+    let sampleEvent = Event(title: "Event1",
+                            emoji: "🤩",
+                            creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
+                            endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
+    EventView(event: .constant(sampleEvent))
+        .modelContainer(container)
 }

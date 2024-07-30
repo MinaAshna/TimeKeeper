@@ -10,20 +10,20 @@ import SwiftData
 
 @main
 struct TimeKeeperApp: App {
-    let modelContainer: ModelContainer
-       
-       init() {
-           do {
-               modelContainer = try ModelContainer(for: Event.self)
-           } catch {
-               fatalError("Could not initialize ModelContainer")
-           }
-       }
-       
+//    let modelContainer: ModelContainer
+//       
+//       init() {
+//           do {
+//               modelContainer = try ModelContainer(for: Event.self)
+//           } catch {
+//               fatalError("Could not initialize ModelContainer")
+//           }
+//       }
+//       
        var body: some Scene {
            WindowGroup {
                TimeKeeperView()
            }
-           .modelContainer(modelContainer)
+           .modelContainer(for: Event.self)
        }
 }
