@@ -16,39 +16,33 @@ struct TimeKeeperView: View {
     @State private var newEvent = Event.emptyEvent
     @State private var isPresentingEditView = false
     @State private var editingIndex: IndexSet = .init()
-    
-    init() {
-        print("init")
-    }
+
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(events) { event in
-                    Button {
-                    } label: {
-                        EventCardView(event: event)
-                            .tint(.appText)
-                    }
-                    .tint(.black)
-                    .buttonStyle(.borderless)
-                    .swipeActions {
-                        Button("Delete", systemImage: "trash", role: .destructive) {
-                            modelContext.delete(event)
-                            do {
-                                try modelContext.save()
-                            } catch {
-                                print(error)
-                            }
+            List(events) { event in
+                Button {
+                } label: {
+                    EventCardView(event: event)
+                        .tint(.appText)
+                }
+                .tint(.black)
+                .buttonStyle(.borderless)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .swipeActions {
+                    Button("Delete", systemImage: "trash", role: .destructive) {
+                        modelContext.delete(event)
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print(error)
                         }
-                        Button("Edit", systemImage: "pencil", role: .none) {
-                            isPresentingEditView = true
-                            editingEvent = event
-                        }
-                        .tint(Color.appGreen)
                     }
-                    .listRowSeparatorTint(Color.appGray, edges: .all)
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+                    Button("Edit", systemImage: "pencil", role: .none) {
+                        isPresentingEditView = true
+                        editingEvent = event
+                    }
+                    .tint(Color.appGreen)
                 }
             }
             .listStyle(.plain)
@@ -61,13 +55,20 @@ struct TimeKeeperView: View {
                         newEvent = .emptyEvent
                         isPresentingNewEventView = true
                     } label: {
-                        Image(systemName: "hourglass.badge.plus")
+                        Image(systemName: "plus")
                             .tint(.primary)
+                            .bold()
                     }
                     .tint(.black)
                     .padding()
                 }
             }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Text(Date.now, style: .date)
+//                    .tint(.black)
+//                }
+//            }
         }
         .sheet(isPresented: $isPresentingNewEventView) {
             NavigationStack {
