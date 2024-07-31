@@ -20,29 +20,31 @@ struct TimeKeeperView: View {
     var body: some View {
         NavigationStack {
             List(events) { event in
-                Button {
-                } label: {
-                    EventCardView(event: event)
-                        .tint(.appText)
-                }
-                .tint(.black)
-                .buttonStyle(.borderless)
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-                .swipeActions {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        modelContext.delete(event)
-                        do {
-                            try modelContext.save()
-                        } catch {
-                            print(error)
+                if event.endDate > .now {
+                    Button {
+                    } label: {
+                        EventCardView(event: event)
+                            .tint(.appText)
+                    }
+                    .tint(.black)
+                    .buttonStyle(.borderless)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    .swipeActions {
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            modelContext.delete(event)
+                            do {
+                                try modelContext.save()
+                            } catch {
+                                print(error)
+                            }
                         }
+                        Button("Edit", systemImage: "pencil", role: .none) {
+                            isPresentingEditView = true
+                            editingEvent = event
+                        }
+                        .tint(Color.appGreen)
                     }
-                    Button("Edit", systemImage: "pencil", role: .none) {
-                        isPresentingEditView = true
-                        editingEvent = event
-                    }
-                    .tint(Color.appGreen)
                 }
             }
             .listStyle(.plain)
