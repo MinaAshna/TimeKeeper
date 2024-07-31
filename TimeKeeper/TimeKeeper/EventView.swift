@@ -22,7 +22,8 @@ struct EventView: View {
                         .cornerRadius(12)
                     
                     DatePicker("End Date",
-                               selection: $event.endDate)
+                               selection: $event.endDate,
+                               in: Date()...)
                     .datePickerStyle(.graphical)
                     
                     Spacer()
