@@ -33,7 +33,6 @@ final class Event: Identifiable {
 extension Event {
     @MainActor static let emptyEvent: Event = Event(title: "", endDate: .now)
     
-#if DEBUG
     @Transient nonisolated(unsafe) static let sampleEvents: [Event] = [Event(title: "Event1",
                                                                              emoji: "🤩",
                                                          creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
@@ -41,6 +40,5 @@ extension Event {
                                                    Event(title: "Event2",
                                                          emoji: "😊",
                                                          endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
-    #endif
 }
 
