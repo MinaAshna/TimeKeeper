@@ -121,6 +121,7 @@ struct TimeKeeperView: View {
                                 isPresentingEditView = false
                                 events.first(where: { $0.id == editingEvent.id } )?.title = editingEvent.title
                                 events.first(where: { $0.id == editingEvent.id } )?.endDate = editingEvent.endDate
+                                editingEvent = .emptyEvent
                                 do {
                                     try modelContext.save()
                                 } catch {
