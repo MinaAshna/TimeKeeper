@@ -14,7 +14,7 @@ import OSLog
 private let logger = Logger(subsystem: "TimeKeeperData", category: "Event")
 
 @Model
-final class Event: Identifiable {
+final class Event {
     @Attribute(.unique) var id: UUID = UUID()
     var title: String
     var emoji: String?

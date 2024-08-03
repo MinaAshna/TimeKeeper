@@ -10,12 +10,10 @@ import SwiftData
 
 struct TimeKeeperView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var events: [Event]
+    @Query(sort: \Event.endDate) var events: [Event]
     @State var isPresentingNewEventView = false
-    @State private var editingEvent = Event.emptyEvent
-    @State private var newEvent = Event.emptyEvent
     @State private var isPresentingEditView = false
-    @State private var editingIndex: IndexSet = .init()
+    @State private var editingEvent: Event?
 
     var body: some View {
         NavigationStack {
@@ -32,16 +30,12 @@ struct TimeKeeperView: View {
                     .listRowSeparator(.hidden)
                     .swipeActions {
                         Button("Delete", systemImage: "trash", role: .destructive) {
-                            modelContext.delete(event)
-                            do {
-                                try modelContext.save()
-                            } catch {
-                                print(error)
-                            }
+                            delete(event: event)
                         }
                         Button("Edit", systemImage: "pencil", role: .none) {
                             isPresentingEditView = true
                             editingEvent = event
+                            let _ = print(editingEvent?.title)
                         }
                         .tint(Color.appGreen)
                     }
@@ -54,7 +48,6 @@ struct TimeKeeperView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        newEvent = .emptyEvent
                         isPresentingNewEventView = true
                     } label: {
                         Image(systemName: "plus")
@@ -65,90 +58,27 @@ struct TimeKeeperView: View {
                     .padding()
                 }
             }
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Text(Date.now, style: .date)
-//                    .tint(.black)
-//                }
-//            }
+        }
+        .onChange(of: isPresentingEditView) {
+            // this is necessary to force the swiftui reevaluating the view with the updated value for editingEvent
+            print(editingEvent ?? "EditingEvent is nil")
         }
         .sheet(isPresented: $isPresentingNewEventView) {
-            NavigationStack {
-                EventView(event: $newEvent)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button {
-                                isPresentingNewEventView = false
-                            } label: {
-                                Text("Cancel")
-                                    .foregroundStyle(Color.red)
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button {
-                                modelContext.insert(newEvent)
-                                do {
-                                    try modelContext.save()
-                                } catch {
-                                    print(error)
-                                }
-                                isPresentingNewEventView = false
-                            } label: {
-                                Text("Done")
-                                    .bold()
-                                    .foregroundStyle(Color.primary)
-                            }
-                        }
-                    }
-            }
+            EventView(event: nil)
         }
         .sheet(isPresented: $isPresentingEditView) {
-            NavigationStack {
-                EventView(event: $editingEvent)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button {
-                                isPresentingEditView = false
-                            } label: {
-                                Text("Cancel")
-                                    .foregroundStyle(Color.red)
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button {
-                                isPresentingEditView = false
-                                events.first(where: { $0.id == editingEvent.id } )?.title = editingEvent.title
-                                events.first(where: { $0.id == editingEvent.id } )?.endDate = editingEvent.endDate
-                                editingEvent = .emptyEvent
-                                do {
-                                    try modelContext.save()
-                                } catch {
-                                    print(error)
-                                }
-                            } label: {
-                                Text("Done")
-                                    .bold()
-                                    .foregroundStyle(Color.primary)
-                            }
-                        }
-                    }
-            }
+            EventView(event: editingEvent)
         }
     }
     
-//    func deleteEvent(_ indexSet: IndexSet) {
-//        for index in indexSet {
-//            let event = events[index]
-//            modelContext.delete(event)
-//            do {
-//                try modelContext.save()
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
+    func delete(event: Event) {
+        modelContext.delete(event)
+        do {
+            try modelContext.save()
+        } catch {
+            print(error)
+        }
+    }
 }
 
 #Preview {
