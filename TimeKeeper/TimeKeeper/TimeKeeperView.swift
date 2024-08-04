@@ -35,7 +35,6 @@ struct TimeKeeperView: View {
                         Button("Edit", systemImage: "pencil", role: .none) {
                             isPresentingEditView = true
                             editingEvent = event
-                            let _ = print(editingEvent?.title)
                         }
                         .tint(Color.appGreen)
                     }

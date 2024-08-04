@@ -20,6 +20,7 @@
 		B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B0C62C21DAA700C734E9 /* Offset.swift */; };
 		B4A6BC822C46EA65007047C9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC812C46EA65007047C9 /* Color+Extension.swift */; };
 		B4A6BC852C515E33007047C9 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC842C515E26007047C9 /* EventCardView.swift */; };
+		B4A6BC892C5EB8BE007047C9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		B465B0C62C21DAA700C734E9 /* Offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offset.swift; sourceTree = "<group>"; };
 		B4A6BC812C46EA65007047C9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		B4A6BC842C515E26007047C9 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
+		B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B4CF07702C3ADEA800A34CF4 /* KeeperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeeperWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A6BC842C515E26007047C9 /* EventCardView.swift */,
+				B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */,
 				B4A6BC802C46EA51007047C9 /* Extension */,
 				B465B0C32C21A5DE00C734E9 /* Helper */,
 				B465B08D2C20044E00C734E9 /* TimeKeeperApp.swift */,
@@ -277,6 +280,7 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
 			);
 			mainGroup = B465B0812C20044D00C734E9;
 			productRefGroup = B465B08B2C20044E00C734E9 /* Products */;
@@ -297,6 +301,7 @@
 			files = (
 				B465B0962C20044F00C734E9 /* Preview Assets.xcassets in Resources */,
 				B465B0922C20044F00C734E9 /* Assets.xcassets in Resources */,
+				B4A6BC892C5EB8BE007047C9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +428,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 			};
@@ -479,6 +485,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 			};
 			name = Release;
