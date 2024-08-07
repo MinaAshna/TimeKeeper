@@ -12,6 +12,7 @@ import SwiftData
 struct EventCardView: View {
     var event: Event
     @State private var offset: Offset = Offset()
+    var latestDate: Date
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -107,14 +108,14 @@ struct EventCardView: View {
                     )
                     .tint(Color.appGreen)
     //                .gaugeStyle(.accessoryCircularCapacity)
-                    
                 
                     HStack {
+                        Text(event.creationDate, style: .date)
+                            .foregroundStyle(Color.appText)
                         Spacer()
                         Text(event.endDate, style: .date)
                             .foregroundStyle(Color.appText)
                     }
-                    
 
                 }
                 
@@ -168,7 +169,7 @@ struct EventCardView: View {
 
 #Preview {
     NavigationStack {
-        EventCardView(event: .sampleEvents[0])
+        EventCardView(event: .sampleEvents[0], latestDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
     }
 }
 

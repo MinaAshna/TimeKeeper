@@ -14,6 +14,7 @@ struct TimeKeeperView: View {
     @State var isPresentingNewEventView = false
     @State private var isPresentingEditView = false
     @State private var editingEvent: Event?
+    @State private var latestDate: Date = .now
 
     var body: some View {
         NavigationStack {
@@ -21,7 +22,7 @@ struct TimeKeeperView: View {
                 if event.endDate > .now {
                     Button {
                     } label: {
-                        EventCardView(event: event)
+                        EventCardView(event: event, latestDate: latestDate)
                             .tint(.appText)
                     }
                     .tint(.black)
@@ -58,6 +59,12 @@ struct TimeKeeperView: View {
                 }
             }
         }
+        .onAppear {
+            latestDate = calculateLatestDate()
+        }
+        .onChange(of: events) {
+            latestDate = calculateLatestDate()
+        }
         .onChange(of: isPresentingEditView) {
             // this is necessary to force the swiftui reevaluating the view with the updated value for editingEvent
             print(editingEvent ?? "EditingEvent is nil")
@@ -77,6 +84,13 @@ struct TimeKeeperView: View {
         } catch {
             print(error)
         }
+    }
+    
+    func calculateLatestDate() -> Date {
+        let dates = events.map { $0.endDate }
+        let max = dates.max() ?? .now
+        print("Latest date: \(max)")
+        return max
     }
 }
 
