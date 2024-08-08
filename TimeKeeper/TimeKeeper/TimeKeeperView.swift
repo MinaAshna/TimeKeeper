@@ -7,15 +7,18 @@
 
 import SwiftUI
 import SwiftData
+import MessageUI
 
 struct TimeKeeperView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Event.endDate) var events: [Event]
     @State var isPresentingNewEventView = false
     @State private var isPresentingEditView = false
+    @State private var isPresentingMailView = false
     @State private var editingEvent: Event?
     @State private var latestDate: Date = .now
-
+    @State var result: Result<MFMailComposeResult, Error>? = nil
+    
     var body: some View {
         NavigationStack {
             List(events) { event in
@@ -47,15 +50,27 @@ struct TimeKeeperView: View {
             .navigationTitle("Events")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        isPresentingNewEventView = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .tint(.primary)
-                            .bold()
+                    HStack {
+                        Button {
+                            isPresentingMailView = true
+                        } label: {
+                            Image(systemName: "text.bubble")
+                                .tint(.primary)
+                                .bold()
+                        }
+                        .tint(.black)
+                        .padding(.trailing, 8)
+                        
+                        Button {
+                            isPresentingNewEventView = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .tint(.primary)
+                                .bold()
+                        }
+                        .tint(.black)
                     }
-                    .tint(.black)
-                    .padding()
+                    .padding(.trailing, 16)
                 }
             }
         }
@@ -74,6 +89,9 @@ struct TimeKeeperView: View {
         }
         .sheet(isPresented: $isPresentingEditView) {
             EventView(event: editingEvent)
+        }
+        .sheet(isPresented: $isPresentingMailView) {
+            MailView(result: $result)
         }
     }
     
