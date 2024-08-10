@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "About Me" : {
+
+    },
     "Add" : {
       "comment" : "Add Button",
       "extractionState" : "manual",
@@ -36,6 +39,9 @@
           }
         }
       }
+    },
+    "Contact Me" : {
+
     },
     "d" : {
       "comment" : "Day",
@@ -188,6 +194,18 @@
         }
       }
     },
+    "Ongoing Events" : {
+
+    },
+    "Past Events" : {
+
+    },
+    "Privacy Policy" : {
+
+    },
+    "Profile" : {
+
+    },
     "s" : {
       "comment" : "Second",
       "localizations" : {
@@ -201,6 +219,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "s"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indstillinger"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         }
       }

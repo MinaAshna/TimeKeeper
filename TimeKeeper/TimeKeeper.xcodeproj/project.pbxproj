@@ -22,6 +22,9 @@
 		B4A6BC852C515E33007047C9 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC842C515E26007047C9 /* EventCardView.swift */; };
 		B4A6BC892C5EB8BE007047C9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */; };
 		B4A6BC8B2C6542B5007047C9 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC8A2C6542B5007047C9 /* MailView.swift */; };
+		B4A6BC8F2C67864F007047C9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC8E2C67864F007047C9 /* TabBarView.swift */; };
+		B4A6BC912C6786DD007047C9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC902C6786DD007047C9 /* ProfileView.swift */; };
+		B4A6BC932C678735007047C9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC922C678735007047C9 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		B4A6BC842C515E26007047C9 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B4A6BC8A2C6542B5007047C9 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		B4A6BC8E2C67864F007047C9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		B4A6BC902C6786DD007047C9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B4A6BC922C678735007047C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B4CF07702C3ADEA800A34CF4 /* KeeperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeeperWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,9 @@
 				B465B0BA2C201E0B00C734E9 /* Event.swift */,
 				B465B0C62C21DAA700C734E9 /* Offset.swift */,
 				B4A6BC8A2C6542B5007047C9 /* MailView.swift */,
+				B4A6BC8E2C67864F007047C9 /* TabBarView.swift */,
+				B4A6BC902C6786DD007047C9 /* ProfileView.swift */,
+				B4A6BC922C678735007047C9 /* SettingsView.swift */,
 			);
 			path = TimeKeeper;
 			sourceTree = "<group>";
@@ -337,6 +346,9 @@
 				B4A6BC852C515E33007047C9 /* EventCardView.swift in Sources */,
 				B465B0C72C21DAA700C734E9 /* Offset.swift in Sources */,
 				B4A6BC8B2C6542B5007047C9 /* MailView.swift in Sources */,
+				B4A6BC8F2C67864F007047C9 /* TabBarView.swift in Sources */,
+				B4A6BC932C678735007047C9 /* SettingsView.swift in Sources */,
+				B4A6BC912C6786DD007047C9 /* ProfileView.swift in Sources */,
 				B465B08E2C20044E00C734E9 /* TimeKeeperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

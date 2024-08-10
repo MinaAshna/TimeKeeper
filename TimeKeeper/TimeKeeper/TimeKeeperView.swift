@@ -7,40 +7,56 @@
 
 import SwiftUI
 import SwiftData
-import MessageUI
 
 struct TimeKeeperView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: \Event.endDate) var events: [Event]
     @State var isPresentingNewEventView = false
     @State private var isPresentingEditView = false
-    @State private var isPresentingMailView = false
     @State private var editingEvent: Event?
     @State private var latestDate: Date = .now
-    @State var result: Result<MFMailComposeResult, Error>? = nil
+    @State private var ongoingEvents = [Event]()
+    @State private var pastEvents = [Event]()
     
     var body: some View {
         NavigationStack {
-            List(events) { event in
-                if event.endDate > .now {
-                    Button {
-                    } label: {
-                        EventCardView(event: event, latestDate: latestDate)
-                            .tint(.appText)
+            List {
+                Section("Ongoing Events") {
+                    ForEach(ongoingEvents, id: \.id) { event in
+                        Button {
+                        } label: {
+                            EventCardView(event: event, latestDate: latestDate)
+                                .tint(.appText)
+                        }
+                        .tint(.black)
+                        .buttonStyle(.borderless)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .swipeActions {
+                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                delete(event: event)
+                            }
+                            Button("Edit", systemImage: "pencil", role: .none) {
+                                isPresentingEditView = true
+                                editingEvent = event
+                            }
+                            .tint(Color.appGreen)
+                        }
                     }
-                    .tint(.black)
-                    .buttonStyle(.borderless)
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .swipeActions {
-                        Button("Delete", systemImage: "trash", role: .destructive) {
-                            delete(event: event)
+                }
+                
+                Section("Past Events") {
+                    ForEach(pastEvents, id: \.id) { event in
+                        Button {
+                        } label: {
+                            EventCardView(event: event, latestDate: latestDate)
+                                .tint(.appText)
                         }
-                        Button("Edit", systemImage: "pencil", role: .none) {
-                            isPresentingEditView = true
-                            editingEvent = event
-                        }
-                        .tint(Color.appGreen)
+                        .tint(.black)
+                        .buttonStyle(.borderless)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        .disabled(true)
                     }
                 }
             }
@@ -50,32 +66,33 @@ struct TimeKeeperView: View {
             .navigationTitle("Events")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack {
-                        Button {
-                            isPresentingMailView = true
-                        } label: {
-                            Image(systemName: "text.bubble")
-                                .tint(.primary)
-                                .bold()
-                        }
-                        .tint(.black)
-                        .padding(.trailing, 8)
-                        
-                        Button {
-                            isPresentingNewEventView = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .tint(.primary)
-                                .bold()
-                        }
-                        .tint(.black)
+                    Button {
+                        isPresentingNewEventView = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .tint(.primary)
+                            .bold()
                     }
+                    .tint(.black)
                     .padding(.trailing, 16)
                 }
             }
+
+//            .safeAreaInset(edge: .top) {
+//                HStack {
+//                    Spacer()
+//                    
+//                    Text(Date.now, style: .date)
+//                        .padding(.trailing, 24)
+//                }
+//                .background(Color.appGray)
+//                .controlSize(.extraLarge)
+//            }
         }
         .onAppear {
             latestDate = calculateLatestDate()
+            ongoingEvents = events.filter { $0.endDate > .now && $0.creationDate < .now }
+            pastEvents = events.filter { $0.endDate < .now }
         }
         .onChange(of: events) {
             latestDate = calculateLatestDate()
@@ -90,9 +107,8 @@ struct TimeKeeperView: View {
         .sheet(isPresented: $isPresentingEditView) {
             EventView(event: editingEvent)
         }
-        .sheet(isPresented: $isPresentingMailView) {
-            MailView(result: $result)
-        }
+
+
     }
     
     func delete(event: Event) {
@@ -116,4 +132,3 @@ struct TimeKeeperView: View {
     return TimeKeeperView()
         .modelContainer(DataController.previewContainer)
 }
-

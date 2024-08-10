@@ -12,7 +12,7 @@ import SwiftData
 struct TimeKeeperApp: App {
     var body: some Scene {
         WindowGroup {
-            TimeKeeperView()
+            TabBarView()
         }
         .modelContainer(for: Event.self)
     }

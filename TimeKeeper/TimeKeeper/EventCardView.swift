@@ -83,8 +83,9 @@ struct EventCardView: View {
                             }
                         }
                         
+                        
                         HStack(spacing: 2) {
-                            Text(offset.second.description)
+                            Text(offset.second >= 0 ? offset.second.description : "0")
                                 .font(.title3)
                                 .bold()
                                 .contentTransition(.numericText(countsDown: true))
@@ -131,9 +132,9 @@ struct EventCardView: View {
                 .stroke(.gray, lineWidth: 1)
                 .opacity(0.2)
                 .shadow(color: .black, radius: 2)
-            
         )
         .background(Color.appWhite)
+        .opacity(event.endDate > .now ? 1 : 0.5)
         .cornerRadius(8) /// make the background rounded
         .onReceive(timer) { _ in
             countdown()
@@ -158,8 +159,12 @@ struct EventCardView: View {
     }
     
     func secondsLeft() -> Double {
-        let diff = event.endDate.timeIntervalSince(.now)
-        return round(diff)
+        if event.endDate > .now {
+            let diff = event.endDate.timeIntervalSince(.now)
+            return round(diff)
+        } else {
+            return 0
+        }
     }
     func totalSeconds() -> Double {
         let diff = event.endDate.timeIntervalSince(event.creationDate)
