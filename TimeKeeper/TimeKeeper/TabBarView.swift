@@ -25,7 +25,7 @@ struct TabBarView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
-//        .tint(Color.appGreen)
+        .accentColor(Color.appGreen)
     }
 }
 

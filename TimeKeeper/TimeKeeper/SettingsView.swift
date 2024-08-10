@@ -15,30 +15,23 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Contact Me") {
-                    Button {
-                        isPresentingMailView = true
-                    } label: {
-                        Image(systemName: "text.bubble")
-                            .tint(.primary)
-                            .bold()
-                    }
-                    .tint(.black)
-                    .padding(.trailing, 8)
-                    .sheet(isPresented: $isPresentingMailView) {
-                        MailView(result: $result)
-                    }
+                Button {
+                    isPresentingMailView = true
+                } label: {
+                    Label("Email", systemImage: "text.bubble")
+                }
+                .sheet(isPresented: $isPresentingMailView) {
+                    MailView(result: $result)
                 }
                 
-                Section("About Me") {
-                    
-                }
-                
-                Section("Privacy Policy") {
-                    
+                NavigationLink {
+                    Text("About")
+                } label: {
+                    Label("About", systemImage: "info.square")
                 }
                 
             }
+            .tint(Color.appText)
             .navigationTitle("Settings")
         }
     }

@@ -1,8 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "About Me" : {
-
+    "About" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
     },
     "Add" : {
       "comment" : "Add Button",
@@ -39,9 +46,6 @@
           }
         }
       }
-    },
-    "Contact Me" : {
-
     },
     "d" : {
       "comment" : "Day",
@@ -106,6 +110,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edit"
+          }
+        }
+      }
+    },
+    "Email" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
           }
         }
       }
@@ -195,16 +209,34 @@
       }
     },
     "Ongoing Events" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ongoing Events"
+          }
+        }
+      }
     },
     "Past Events" : {
-
-    },
-    "Privacy Policy" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Past Events"
+          }
+        }
+      }
     },
     "Profile" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        }
+      }
     },
     "s" : {
       "comment" : "Second",
