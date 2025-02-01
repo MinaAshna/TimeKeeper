@@ -15,13 +15,14 @@ private let logger = Logger(subsystem: "TimeKeeperData", category: "Event")
 
 @Model
 final class Event {
-    @Attribute(.unique) var id: UUID = UUID()
+    @Attribute(.unique) var id: UUID
     var title: String
     var emoji: String?
     var creationDate: Date = Date.now
     var endDate: Date
     
     init(title: String, emoji: String? = "", creationDate: Date = Date.now, endDate: Date) {
+        self.id = UUID()
         self.title = title
         self.emoji = emoji
         self.creationDate = creationDate
@@ -35,10 +36,10 @@ extension Event {
     
     @Transient nonisolated(unsafe) static let sampleEvents: [Event] = [Event(title: "Event1",
                                                                              emoji: "🤩",
-                                                         creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
-                                                         endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!),
-                                                   Event(title: "Event2",
-                                                         emoji: "😊",
-                                                         endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
+                                                                             creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
+                                                                             endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!),
+                                                                       Event(title: "Event2",
+                                                                             emoji: "😊",
+                                                                             endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
 }
 

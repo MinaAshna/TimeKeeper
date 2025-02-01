@@ -8,9 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct EventView: View {
-    @Environment(\.modelContext) var modelContext
+struct EventDetailsView: View {
     @Environment(\.dismiss) var dismiss
+    var eventHandler: AllEventsEventHandler
     var event: Event?
     @State private var title: String = ""
     @State private var emoji: String?
@@ -75,24 +75,25 @@ struct EventView: View {
             event.endDate = endDate
         } else {
             let event = Event(title: title, emoji: emoji, endDate: endDate)
-            modelContext.insert(event)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error)
+            eventHandler.saveEventTapped(event: event)
         }
     }
 }
 
 #Preview {
-    let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Event.self, configurations: configuration)
     let sampleEvent = Event(title: "Event1",
                             emoji: "🤩",
                             creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
                             endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
-    EventView(event: sampleEvent)
-        .modelContainer(container)
+    
+    
+    // TODO: use mocks and dummys
+//    let container = try! ModelContainer(for: Event.self)
+    let viewModel = AllEventsViewModel()
+//    let dataManager = DataManager(container: container)
+//    let interactor = AllEventsInteractor(dataManager: dataManager)
+    let presenter = AllEventsPresenter(viewModel: viewModel/*, interactor: interactor*/)
+
+    
+    EventDetailsView(eventHandler: presenter, event: sampleEvent)
 }

@@ -10,10 +10,17 @@ import SwiftData
 
 @main
 struct TimeKeeperApp: App {
+    let viewModel: AllEventsViewModel
+    let presenter: AllEventsPresenter
+    
+    init() {
+        viewModel = AllEventsViewModel()
+        presenter = AllEventsPresenter(viewModel: viewModel)
+    }
+
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            AllEventsView(viewModel: viewModel, eventHandler: presenter)
         }
-        .modelContainer(for: Event.self)
     }
 }

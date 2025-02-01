@@ -7,28 +7,28 @@
 
 import SwiftUI
 
-struct TabBarView: View {
-    var body: some View {
-        TabView {
-            TimeKeeperView()
-                .tabItem {
-                    Label("Events", systemImage: "hourglass")
-                }
-            
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
-            
-            SettingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-        }
-        .accentColor(Color.appGreen)
-    }
-}
+//struct TabBarView: View {
+//    var body: some View {
+//        TabView {
+//            AllEventsView()
+//                .tabItem {
+//                    Label("Events", systemImage: "hourglass")
+//                }
+//            
+//            ProfileView()
+//                .tabItem {
+//                    Label("Profile", systemImage: "person")
+//                }
+//            
+//            SettingsView()
+//                .tabItem {
+//                    Label("Settings", systemImage: "gear")
+//                }
+//        }
+//        .accentColor(Color.appGreen)
+//    }
+//}
 
-#Preview {
-    TabBarView()
-}
+//#Preview {
+//    TabBarView()
+//}
