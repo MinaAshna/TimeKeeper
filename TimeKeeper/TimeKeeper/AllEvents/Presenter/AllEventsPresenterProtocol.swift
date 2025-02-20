@@ -8,6 +8,7 @@
 import Foundation
 
 @MainActor
-protocol AllEventsProtocol: AnyObject {
+protocol AllEventsPresenterProtocol: AnyObject {
     func listOfEvents(events: [Event])
+    func failedToFetchEvents() 
 }

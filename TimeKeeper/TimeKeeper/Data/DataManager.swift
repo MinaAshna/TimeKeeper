@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
-
+// In an ideal world, DataManager should be an actor, but because Event is a @Model, and @Model is not thread safe, we cannot really use it here.
 class DataManager {
     private let context: ModelContext
     
@@ -20,17 +21,23 @@ class DataManager {
 extension DataManager: DataManagerProtocol {
     func delete(event: Event) {
         context.delete(event)
-        saveContext()
     }
     
     func save(event: Event) {
         context.insert(event)
-        saveContext()
     }
     
-    func readAllEvents() -> [Event] {
-        let descriptor = FetchDescriptor<Event>(sortBy: [SortDescriptor(\Event.creationDate, order: .reverse)])
-        return (try? context.fetch(descriptor)) ?? []
+    func readAllEvents() throws -> [Event] {
+//        let ongoingEvents = #Predicate<Event> {
+//            $0.endDate < Date() &&
+//        }
+        let descriptor = FetchDescriptor<Event>(sortBy: [SortDescriptor(\Event.creationDate, order: .reverse)]/*, predicate: ongoingEvents*/)
+        do {
+            return try context.fetch(descriptor)
+        } catch {
+            Logger.data.error("Failed to fetch events: \(error.localizedDescription)")
+            throw AppError.dataManagerFetchError(error.localizedDescription)
+        }
     }
 }
 

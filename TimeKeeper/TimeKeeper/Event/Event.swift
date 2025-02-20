@@ -6,12 +6,9 @@
 //
 
 import Foundation
+import OSLog
 import SwiftUI
 import SwiftData
-import OSLog
-
-
-private let logger = Logger(subsystem: "TimeKeeperData", category: "Event")
 
 @Model
 final class Event {
@@ -27,7 +24,7 @@ final class Event {
         self.emoji = emoji
         self.creationDate = creationDate
         self.endDate = endDate
-        logger.notice("Event \(self.id) has been created with title: '\(self.title)'")
+//        logger.notice("Event \(self.id) has been created with title: '\(self.title)'")
     }
 }
 

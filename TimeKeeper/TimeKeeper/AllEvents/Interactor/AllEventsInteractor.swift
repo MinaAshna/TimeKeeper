@@ -10,9 +10,9 @@ import Foundation
 @MainActor
 class AllEventsInteractor {
     let dataManager: DataManagerProtocol
-    weak var allEventsProtocol: (any AllEventsProtocol)?
+    weak var allEventsProtocol: (any AllEventsPresenterProtocol)?
     
-    init(dataManager: DataManagerProtocol, allEventsProtocol: (any AllEventsProtocol)? = nil) {
+    init(dataManager: DataManagerProtocol, allEventsProtocol: (any AllEventsPresenterProtocol)?) {
         self.dataManager = dataManager
         self.allEventsProtocol = allEventsProtocol
     }
@@ -20,8 +20,12 @@ class AllEventsInteractor {
 
 extension AllEventsInteractor: AllEventsInteractorProtocol {
     func readAllEvents() {
-        let events = dataManager.readAllEvents()
-        allEventsProtocol?.listOfEvents(events: events)
+        do {
+            let events = try dataManager.readAllEvents()
+            allEventsProtocol?.listOfEvents(events: events)
+        } catch {
+            allEventsProtocol?.failedToFetchEvents()
+        }
     }
     
     func delete(event: Event) {

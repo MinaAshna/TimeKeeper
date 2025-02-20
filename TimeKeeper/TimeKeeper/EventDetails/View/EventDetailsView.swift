@@ -10,11 +10,11 @@ import SwiftData
 
 struct EventDetailsView: View {
     @Environment(\.dismiss) var dismiss
-    var eventHandler: AllEventsEventHandler
-    var event: Event?
     @State private var title: String = ""
     @State private var emoji: String?
     @State private var endDate: Date = .now
+    var eventHandler: AllEventsPresenterEventHandler
+    var event: Event?
     
     var body: some View {
         NavigationStack {
@@ -87,12 +87,8 @@ struct EventDetailsView: View {
                             endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
     
     
-    // TODO: use mocks and dummys
-//    let container = try! ModelContainer(for: Event.self)
     let viewModel = AllEventsViewModel()
-//    let dataManager = DataManager(container: container)
-//    let interactor = AllEventsInteractor(dataManager: dataManager)
-    let presenter = AllEventsPresenter(viewModel: viewModel/*, interactor: interactor*/)
+    let presenter = AllEventsPresenter(viewModel: viewModel)
 
     
     EventDetailsView(eventHandler: presenter, event: sampleEvent)

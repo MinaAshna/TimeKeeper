@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-protocol AllEventsEventHandler {
+protocol AllEventsPresenterEventHandler {
     func viewDidAppear()
     func deleteEventTapped(event: Event)
     func saveEventTapped(event: Event)
