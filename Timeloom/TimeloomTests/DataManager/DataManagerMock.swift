@@ -1,20 +1,20 @@
 import UIKit
-@testable import TimeKeeper
+@testable import Timeloom
 
 class DataManagerMock {
     var events: [Event] = []
 }
 
 extension DataManagerMock: DataManagerProtocol {
-    func delete(event: TimeKeeper.Event) {
+    func delete(event: Timeloom.Event) {
         events.removeAll(where: { $0.id == event.id })
     }
     
-    func save(event: TimeKeeper.Event) {
+    func save(event: Timeloom.Event) {
         events.append(event)
     }
     
-    func readAllEvents() throws -> [TimeKeeper.Event] {
+    func readAllEvents() throws -> [Timeloom.Event] {
         return events
     }
 }

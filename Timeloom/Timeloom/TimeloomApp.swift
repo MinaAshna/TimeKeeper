@@ -1,15 +1,14 @@
 //
-//  TimeKeeperApp.swift
-//  TimeKeeper
+//  TimeloomApp.swift
+//  Timeloom
 //
-//  Created by Mina Ashna on 17/06/2024.
+//  Created by Mina Ashna on 22/02/2025.
 //
 
 import SwiftUI
-import SwiftData
 
 @main
-struct TimeKeeperApp: App {
+struct TimeloomApp: App {
     let viewModel: AllEventsViewModel
     let presenter: AllEventsPresenter
     

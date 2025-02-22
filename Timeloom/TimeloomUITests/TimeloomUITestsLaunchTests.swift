@@ -1,13 +1,13 @@
 //
-//  TimeKeeperUITestsLaunchTests.swift
-//  TimeKeeperUITests
+//  TimeloomUITestsLaunchTests.swift
+//  TimeloomUITests
 //
-//  Created by Mina Ashna on 17/06/2024.
+//  Created by Mina Ashna on 22/02/2025.
 //
 
 import XCTest
 
-final class TimeKeeperUITestsLaunchTests: XCTestCase {
+final class TimeloomUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
@@ -17,6 +17,7 @@ final class TimeKeeperUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
+    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()

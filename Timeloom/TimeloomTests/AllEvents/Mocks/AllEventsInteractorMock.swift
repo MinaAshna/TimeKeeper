@@ -6,7 +6,7 @@
 //
 
 import UIKit
-@testable import TimeKeeper
+@testable import Timeloom
 
 class AllEventsInteractorMock {
 
@@ -17,11 +17,11 @@ extension AllEventsInteractorMock: AllEventsInteractorProtocol {
         
     }
     
-    func delete(event: TimeKeeper.Event) {
+    func delete(event: Timeloom.Event) {
         
     }
     
-    func save(event: TimeKeeper.Event) {
+    func save(event: Timeloom.Event) {
         
     }
 }

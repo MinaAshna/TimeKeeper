@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B465B0892C20044D00C734E9"
-               BuildableName = "TimeKeeper.app"
-               BlueprintName = "TimeKeeper"
-               ReferencedContainer = "container:TimeKeeper.xcodeproj">
+               BlueprintIdentifier = "B40513782D6A740E00236EE8"
+               BuildableName = "Timeloom.app"
+               BlueprintName = "Timeloom"
+               ReferencedContainer = "container:Timeloom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,30 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B40513892D6A741100236EE8"
+               BuildableName = "TimeloomTests.xctest"
+               BlueprintName = "TimeloomTests"
+               ReferencedContainer = "container:Timeloom.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B40513932D6A741100236EE8"
+               BuildableName = "TimeloomUITests.xctest"
+               BlueprintName = "TimeloomUITests"
+               ReferencedContainer = "container:Timeloom.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -39,16 +63,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      showNonLocalizedStrings = "YES">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B465B0892C20044D00C734E9"
-            BuildableName = "TimeKeeper.app"
-            BlueprintName = "TimeKeeper"
-            ReferencedContainer = "container:TimeKeeper.xcodeproj">
+            BlueprintIdentifier = "B40513782D6A740E00236EE8"
+            BuildableName = "Timeloom.app"
+            BlueprintName = "Timeloom"
+            ReferencedContainer = "container:Timeloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,10 +85,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B465B0892C20044D00C734E9"
-            BuildableName = "TimeKeeper.app"
-            BlueprintName = "TimeKeeper"
-            ReferencedContainer = "container:TimeKeeper.xcodeproj">
+            BlueprintIdentifier = "B40513782D6A740E00236EE8"
+            BuildableName = "Timeloom.app"
+            BlueprintName = "Timeloom"
+            ReferencedContainer = "container:Timeloom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

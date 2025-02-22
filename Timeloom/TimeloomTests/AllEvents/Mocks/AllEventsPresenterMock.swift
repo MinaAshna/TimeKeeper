@@ -1,5 +1,5 @@
 import UIKit
-@testable import TimeKeeper
+@testable import Timeloom
 
 @MainActor
 class AllEventsPresenterMock {
@@ -9,7 +9,7 @@ class AllEventsPresenterMock {
 
 extension AllEventsPresenterMock: AllEventsPresenterProtocol {
     
-    func listOfEvents(events: [TimeKeeper.Event]) {
+    func listOfEvents(events: [Timeloom.Event]) {
         self.events = events
     }
     

@@ -6,7 +6,7 @@
 //
 
 import Testing
-@testable import TimeKeeper
+@testable import Timeloom
 import Foundation
 
 // This is a Test Suite. It will run all the store properties for each @Test function.
