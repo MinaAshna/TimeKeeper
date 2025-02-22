@@ -158,6 +158,17 @@
         }
       }
     },
+    "event title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title of your event"
+          }
+        }
+      }
+    },
     "Events" : {
       "localizations" : {
         "da" : {
@@ -286,6 +297,9 @@
           }
         }
       }
+    },
+    "Title of your event" : {
+
     },
     "y" : {
       "comment" : "Year",
