@@ -16,15 +16,20 @@ class AllEventsPresenter {
     init(viewModel: AllEventsViewModel) {
         self.viewModel = viewModel
         
-        let container = try! ModelContainer(for: Event.self)
-        let dataManager = DataManager(container: container)
-        let interactor = AllEventsInteractor(dataManager: dataManager, allEventsProtocol: self)
-        self.interactor = interactor
+        do {
+            let container = try ModelContainer(for: Event.self)
+            let dataManager = DataManager(container: container)
+            let interactor = AllEventsInteractor(dataManager: dataManager, allEventsProtocol: self)
+            self.interactor = interactor
+        } catch {
+            // TODO: Error handling
+            print(error)
+        }
     }
     
 }
 
-extension AllEventsPresenter: AllEventsEventHandler {
+extension AllEventsPresenter: AllEventsPresenterEventHandler {
     func viewDidAppear() {
         interactor?.readAllEvents()
     }
@@ -45,9 +50,13 @@ extension AllEventsPresenter: AllEventsEventHandler {
     }
 }
 
-extension AllEventsPresenter: AllEventsProtocol {
+extension AllEventsPresenter: AllEventsPresenterProtocol {
     func listOfEvents(events: [Event]) {
         viewModel.events = events
         clusterEvents()
+    }
+    
+    func failedToFetchEvents() {
+        // TODO: UI for error cases
     }
 }

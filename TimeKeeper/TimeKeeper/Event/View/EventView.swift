@@ -12,9 +12,9 @@ import SwiftData
 struct EventView: View {
     var viewModel: EventViewModel
     var eventHandler: (any EventEventHandler)? = nil
-    var allEventsHandler: (any AllEventsEventHandler)
+    var allEventsHandler: (any AllEventsPresenterEventHandler)
     
-    init(viewModel: EventViewModel, eventHandler: (any EventEventHandler)? = nil, allEventHandler: any AllEventsEventHandler) {
+    init(viewModel: EventViewModel, eventHandler: (any EventEventHandler)? = nil, allEventHandler: any AllEventsPresenterEventHandler) {
         self.viewModel = viewModel
         
         if eventHandler == nil {

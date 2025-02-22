@@ -7,8 +7,9 @@
 
 import Foundation
 
+@MainActor
 protocol DataManagerProtocol {
     func delete(event: Event)
     func save(event: Event)
-    func readAllEvents() -> [Event]
+    func readAllEvents() throws -> [Event]
 }

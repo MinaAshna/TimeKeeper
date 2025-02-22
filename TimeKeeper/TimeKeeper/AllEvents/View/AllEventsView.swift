@@ -10,7 +10,7 @@ import SwiftData
 
 struct AllEventsView: View {
     var viewModel: AllEventsViewModel
-    var eventHandler: AllEventsEventHandler
+    var eventHandler: AllEventsPresenterEventHandler
     
     @State private var isPresentingNewEventView = false
     @State private var isPresentingEditView = false

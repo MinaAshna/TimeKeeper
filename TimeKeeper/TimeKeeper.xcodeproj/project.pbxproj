@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B44B82CD2D529B39007BFCF8 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B82CC2D529B39007BFCF8 /* Guide.swift */; };
+		B44B82D12D529CEA007BFCF8 /* AllEventsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B82CF2D529CB1007BFCF8 /* AllEventsInteractorMock.swift */; };
+		B44B82D32D529D53007BFCF8 /* DataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B82D22D529D53007BFCF8 /* DataManagerMock.swift */; };
+		B44B82D52D529DAB007BFCF8 /* AllEventsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B82D42D529DAB007BFCF8 /* AllEventsPresenterMock.swift */; };
 		B465B08E2C20044E00C734E9 /* TimeKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B08D2C20044E00C734E9 /* TimeKeeperApp.swift */; };
 		B465B0902C20044E00C734E9 /* AllEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B465B08F2C20044E00C734E9 /* AllEventsView.swift */; };
 		B465B0922C20044F00C734E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B465B0912C20044F00C734E9 /* Assets.xcassets */; };
@@ -22,13 +26,13 @@
 		B46FB31D2D4E3968000EFF82 /* EventEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB31C2D4E3968000EFF82 /* EventEventHandler.swift */; };
 		B46FB31F2D4E3971000EFF82 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB31E2D4E3971000EFF82 /* EventPresenter.swift */; };
 		B46FB3262D4E43F8000EFF82 /* AllEventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3252D4E43F8000EFF82 /* AllEventsPresenter.swift */; };
-		B46FB3282D4E4404000EFF82 /* AllEventsEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3272D4E4404000EFF82 /* AllEventsEventHandler.swift */; };
+		B46FB3282D4E4404000EFF82 /* AllEventsPresenterEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3272D4E4404000EFF82 /* AllEventsPresenterEventHandler.swift */; };
 		B46FB32A2D4E440F000EFF82 /* AllEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3292D4E440F000EFF82 /* AllEventsViewModel.swift */; };
 		B46FB32D2D4E44ED000EFF82 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB32C2D4E44ED000EFF82 /* DataManager.swift */; };
 		B46FB3322D4E4A07000EFF82 /* AllEventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3312D4E4A07000EFF82 /* AllEventsInteractor.swift */; };
 		B46FB3342D4E4A19000EFF82 /* AllEventsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3332D4E4A19000EFF82 /* AllEventsInteractorProtocol.swift */; };
 		B46FB3362D4E4B74000EFF82 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46FB3352D4E4B74000EFF82 /* DataManagerProtocol.swift */; };
-		B492E8A12D4E642400363723 /* AllEventsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492E8A02D4E642400363723 /* AllEventsProtocol.swift */; };
+		B492E8A12D4E642400363723 /* AllEventsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492E8A02D4E642400363723 /* AllEventsPresenterProtocol.swift */; };
 		B4A6BC822C46EA65007047C9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC812C46EA65007047C9 /* Color+Extension.swift */; };
 		B4A6BC852C515E33007047C9 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC842C515E26007047C9 /* EventView.swift */; };
 		B4A6BC892C5EB8BE007047C9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */; };
@@ -36,6 +40,9 @@
 		B4A6BC8F2C67864F007047C9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC8E2C67864F007047C9 /* TabBarView.swift */; };
 		B4A6BC912C6786DD007047C9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC902C6786DD007047C9 /* ProfileView.swift */; };
 		B4A6BC932C678735007047C9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6BC922C678735007047C9 /* SettingsView.swift */; };
+		B4E2F9982D679D6F004CBB98 /* AllEventsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2F9972D679D6F004CBB98 /* AllEventsInteractorTests.swift */; };
+		B4E86EC72D4FC33F007B84E9 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E86EC62D4FC33F007B84E9 /* AppError.swift */; };
+		B4E86ECA2D4FC3F7007B84E9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E86EC92D4FC3F3007B84E9 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +76,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B44B82CC2D529B39007BFCF8 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
+		B44B82CF2D529CB1007BFCF8 /* AllEventsInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsInteractorMock.swift; sourceTree = "<group>"; };
+		B44B82D22D529D53007BFCF8 /* DataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerMock.swift; sourceTree = "<group>"; };
+		B44B82D42D529DAB007BFCF8 /* AllEventsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPresenterMock.swift; sourceTree = "<group>"; };
 		B46491042C31C30900152BFD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B46491062C31C30900152BFD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B465B08A2C20044E00C734E9 /* TimeKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,13 +101,13 @@
 		B46FB31C2D4E3968000EFF82 /* EventEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEventHandler.swift; sourceTree = "<group>"; };
 		B46FB31E2D4E3971000EFF82 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		B46FB3252D4E43F8000EFF82 /* AllEventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPresenter.swift; sourceTree = "<group>"; };
-		B46FB3272D4E4404000EFF82 /* AllEventsEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsEventHandler.swift; sourceTree = "<group>"; };
+		B46FB3272D4E4404000EFF82 /* AllEventsPresenterEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPresenterEventHandler.swift; sourceTree = "<group>"; };
 		B46FB3292D4E440F000EFF82 /* AllEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsViewModel.swift; sourceTree = "<group>"; };
 		B46FB32C2D4E44ED000EFF82 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B46FB3312D4E4A07000EFF82 /* AllEventsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsInteractor.swift; sourceTree = "<group>"; };
 		B46FB3332D4E4A19000EFF82 /* AllEventsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsInteractorProtocol.swift; sourceTree = "<group>"; };
 		B46FB3352D4E4B74000EFF82 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
-		B492E8A02D4E642400363723 /* AllEventsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsProtocol.swift; sourceTree = "<group>"; };
+		B492E8A02D4E642400363723 /* AllEventsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsPresenterProtocol.swift; sourceTree = "<group>"; };
 		B4A6BC812C46EA65007047C9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		B4A6BC842C515E26007047C9 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		B4A6BC882C5EB8BE007047C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -105,6 +116,9 @@
 		B4A6BC902C6786DD007047C9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B4A6BC922C678735007047C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B4CF07702C3ADEA800A34CF4 /* KeeperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeeperWidgetExtension.entitlements; sourceTree = "<group>"; };
+		B4E2F9972D679D6F004CBB98 /* AllEventsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsInteractorTests.swift; sourceTree = "<group>"; };
+		B4E86EC62D4FC33F007B84E9 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B4E86EC92D4FC3F3007B84E9 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +146,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B44B82D62D529E03007BFCF8 /* AllEvents */ = {
+			isa = PBXGroup;
+			children = (
+				B44B82D72D529E13007BFCF8 /* Mocks */,
+				B44B82CC2D529B39007BFCF8 /* Guide.swift */,
+				B4E2F9972D679D6F004CBB98 /* AllEventsInteractorTests.swift */,
+			);
+			path = AllEvents;
+			sourceTree = "<group>";
+		};
+		B44B82D72D529E13007BFCF8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B44B82D42D529DAB007BFCF8 /* AllEventsPresenterMock.swift */,
+				B44B82CF2D529CB1007BFCF8 /* AllEventsInteractorMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		B46491032C31C30900152BFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +199,7 @@
 		B465B08C2C20044E00C734E9 /* TimeKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				B4E86EC82D4FC355007B84E9 /* Util */,
 				B46FB3302D4E497D000EFF82 /* EventDetails */,
 				B46FB32B2D4E44DC000EFF82 /* Data */,
 				B46FB3222D4E43BA000EFF82 /* AllEvents */,
@@ -196,6 +230,8 @@
 		B465B09E2C20044F00C734E9 /* TimeKeeperTests */ = {
 			isa = PBXGroup;
 			children = (
+				B4E2F9962D679CDE004CBB98 /* DataManager */,
+				B44B82D62D529E03007BFCF8 /* AllEvents */,
 				B465B09F2C20044F00C734E9 /* TimeKeeperTests.swift */,
 			);
 			path = TimeKeeperTests;
@@ -270,8 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				B46FB3252D4E43F8000EFF82 /* AllEventsPresenter.swift */,
-				B46FB3272D4E4404000EFF82 /* AllEventsEventHandler.swift */,
-				B492E8A02D4E642400363723 /* AllEventsProtocol.swift */,
+				B46FB3272D4E4404000EFF82 /* AllEventsPresenterEventHandler.swift */,
+				B492E8A02D4E642400363723 /* AllEventsPresenterProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -294,18 +330,10 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		B46FB32F2D4E496C000EFF82 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		B46FB3302D4E497D000EFF82 /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
 				B492E89F2D4E5FD000363723 /* View */,
-				B46FB32F2D4E496C000EFF82 /* Interactor */,
 			);
 			path = EventDetails;
 			sourceTree = "<group>";
@@ -324,6 +352,23 @@
 				B4A6BC812C46EA65007047C9 /* Color+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B4E2F9962D679CDE004CBB98 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				B44B82D22D529D53007BFCF8 /* DataManagerMock.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		B4E86EC82D4FC355007B84E9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B4E86EC92D4FC3F3007B84E9 /* Logger.swift */,
+				B4E86EC62D4FC33F007B84E9 /* AppError.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,7 +436,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					B465B0892C20044D00C734E9 = {
 						CreatedOnToolsVersion = 15.2;
@@ -461,9 +506,9 @@
 			files = (
 				B465B0C52C21A5EB00C734E9 /* DataController.swift in Sources */,
 				B46FB32A2D4E440F000EFF82 /* AllEventsViewModel.swift in Sources */,
-				B46FB3282D4E4404000EFF82 /* AllEventsEventHandler.swift in Sources */,
+				B46FB3282D4E4404000EFF82 /* AllEventsPresenterEventHandler.swift in Sources */,
 				B46FB3362D4E4B74000EFF82 /* DataManagerProtocol.swift in Sources */,
-				B492E8A12D4E642400363723 /* AllEventsProtocol.swift in Sources */,
+				B492E8A12D4E642400363723 /* AllEventsPresenterProtocol.swift in Sources */,
 				B4A6BC822C46EA65007047C9 /* Color+Extension.swift in Sources */,
 				B465B0BB2C201E0B00C734E9 /* Event.swift in Sources */,
 				B465B0B92C200CA500C734E9 /* EventDetailsView.swift in Sources */,
@@ -479,6 +524,8 @@
 				B46FB32D2D4E44ED000EFF82 /* DataManager.swift in Sources */,
 				B4A6BC912C6786DD007047C9 /* ProfileView.swift in Sources */,
 				B46FB3342D4E4A19000EFF82 /* AllEventsInteractorProtocol.swift in Sources */,
+				B4E86ECA2D4FC3F7007B84E9 /* Logger.swift in Sources */,
+				B4E86EC72D4FC33F007B84E9 /* AppError.swift in Sources */,
 				B46FB31D2D4E3968000EFF82 /* EventEventHandler.swift in Sources */,
 				B465B08E2C20044E00C734E9 /* TimeKeeperApp.swift in Sources */,
 				B46FB31F2D4E3971000EFF82 /* EventPresenter.swift in Sources */,
@@ -489,7 +536,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B44B82D32D529D53007BFCF8 /* DataManagerMock.swift in Sources */,
 				B465B0A02C20044F00C734E9 /* TimeKeeperTests.swift in Sources */,
+				B44B82D12D529CEA007BFCF8 /* AllEventsInteractorMock.swift in Sources */,
+				B44B82D52D529DAB007BFCF8 /* AllEventsPresenterMock.swift in Sources */,
+				B44B82CD2D529B39007BFCF8 /* Guide.swift in Sources */,
+				B4E2F9982D679D6F004CBB98 /* AllEventsInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +575,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -587,6 +640,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
