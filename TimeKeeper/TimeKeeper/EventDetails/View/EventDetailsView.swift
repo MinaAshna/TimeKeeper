@@ -19,17 +19,25 @@ struct EventDetailsView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    TextField("Title", text: $title, axis: .vertical)
-                        .padding(16)
-                        .frame(height: 60)
-                        .background(Color.appGray)
-                        .cornerRadius(12)
+                VStack(alignment: .leading, spacing: 32) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Title of your event")
+                        TextField("Title", text: $title, axis: .vertical)
+                            .padding(16)
+                            .frame(height: 60)
+                            .background(Color.appGray)
+                            .cornerRadius(12)
+                    }
+                    .padding(.vertical)
                     
-                    DatePicker("End Date",
-                               selection: $endDate,
-                               in: Date()...)
-                    .datePickerStyle(.graphical)
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("End Date")
+                        DatePicker("End Date",
+                                   selection: $endDate,
+                                   in: Date()...)
+                        .datePickerStyle(.graphical)
+                    }
+                    .padding(.vertical)
                     
                     Spacer()
                 }
