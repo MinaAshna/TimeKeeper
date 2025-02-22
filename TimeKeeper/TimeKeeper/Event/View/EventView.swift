@@ -44,72 +44,10 @@ struct EventView: View {
             
             VStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 8) {
-                    HStack {
-                        if viewModel.offset.year > 0 {
-                            HStack(spacing: 2) {
-                                Text(viewModel.offset.year.description)
-                                    .font(.title3)
-                                    .bold()
-                                Text("y")
-                                    .font(.headline)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
-                        }
-                        if viewModel.offset.month > 0 {
-                            HStack(spacing: 2) {
-                                Text(viewModel.offset.month.description)
-                                    .font(.title3)
-                                    .bold()
-                                Text("m")
-                                    .font(.headline)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
-                        }
-                        if viewModel.offset.day > 0 {
-                            HStack(spacing: 2) {
-                                Text(viewModel.offset.day.description)
-                                    .font(.title3)
-                                    .bold()
-                                Text("d")
-                                    .font(.headline)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
-                        }
-                        if viewModel.offset.hour > 0 {
-                            HStack(spacing: 2) {
-                                Text(viewModel.offset.hour.description)
-                                    .font(.title3)
-                                    .bold()
-                                Text("h")
-                                    .font(.headline)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
-                        }
-                        if viewModel.offset.minute > 0 {
-                            HStack(spacing: 2) {
-                                Text(viewModel.offset.minute.description)
-                                    .font(.title3)
-                                    .bold()
-                                Text("m")
-                                    .font(.headline)
-                                    .foregroundStyle(Color.appTextSecondary)
-                            }
-                        }
-                        
-                        
-                        HStack(spacing: 2) {
-                            Text(viewModel.offset.second >= 0 ? viewModel.offset.second.description : "0")
-                                .font(.title3)
-                                .bold()
-                                .contentTransition(.numericText(countsDown: true))
-                            Text("s")
-                                .font(.headline)
-                                .foregroundStyle(Color.appTextSecondary)
-                        }
-                    }
-                    .multilineTextAlignment(.leading)
-                    .frame(maxHeight: .infinity)
-                                       
+                    
+                    counterView
+                        .multilineTextAlignment(.leading)
+                    
                     Gauge(
                         value: viewModel.totalSeconds() - viewModel.secondsLeft(),
                         in: 0...viewModel.totalSeconds(),
@@ -121,22 +59,22 @@ struct EventView: View {
                         
                     )
                     .tint(Color.appGreen)
-                
+                    
                     HStack {
                         Text(viewModel.event.creationDate, style: .date)
                             .foregroundStyle(Color.appText)
+                            .multilineTextAlignment(.leading)
+                        
                         Spacer()
                         Text(viewModel.event.endDate, style: .date)
                             .foregroundStyle(Color.appText)
+                            .multilineTextAlignment(.leading)
                     }
-
+                    
                 }
-                
-            
             }
             .padding([.top, .bottom], 8)
             .foregroundStyle(Color.appText)
-            
         }
         .padding()
         .overlay(
@@ -147,13 +85,81 @@ struct EventView: View {
         )
         .background(Color.appWhite)
         .opacity(viewModel.event.endDate > .now ? 1 : 0.5)
-        .cornerRadius(8) /// make the background rounded
+        .cornerRadius(8)
         .onReceive(timer) { _ in
             eventHandler?.countdown()
             if viewModel.event.endDate < .now {
-                print("stop timer")
                 allEventsHandler.clusterEvents()
                 timer.upstream.connect().cancel()
+            }
+        }
+        
+        
+    }
+    
+    
+    var counterView: some View {
+        HStack {
+            if viewModel.offset.year > 0 {
+                HStack(spacing: 2) {
+                    Text(viewModel.offset.year.description)
+                        .font(.title3)
+                        .bold()
+                    Text("y")
+                        .font(.headline)
+                        .foregroundStyle(Color.appTextSecondary)
+                }
+            }
+            if viewModel.offset.month > 0 {
+                HStack(spacing: 2) {
+                    Text(viewModel.offset.month.description)
+                        .font(.title3)
+                        .bold()
+                    Text("m")
+                        .font(.headline)
+                        .foregroundStyle(Color.appTextSecondary)
+                }
+            }
+            if viewModel.offset.day > 0 {
+                HStack(spacing: 2) {
+                    Text(viewModel.offset.day.description)
+                        .font(.title3)
+                        .bold()
+                    Text("d")
+                        .font(.headline)
+                        .foregroundStyle(Color.appTextSecondary)
+                }
+            }
+            if viewModel.offset.hour > 0 {
+                HStack(spacing: 2) {
+                    Text(viewModel.offset.hour.description)
+                        .font(.title3)
+                        .bold()
+                    Text("h")
+                        .font(.headline)
+                        .foregroundStyle(Color.appTextSecondary)
+                }
+            }
+            if viewModel.offset.minute > 0 {
+                HStack(spacing: 2) {
+                    Text(viewModel.offset.minute.description)
+                        .font(.title3)
+                        .bold()
+                    Text("m")
+                        .font(.headline)
+                        .foregroundStyle(Color.appTextSecondary)
+                }
+            }
+            
+            
+            HStack(spacing: 2) {
+                Text(viewModel.offset.second >= 0 ? viewModel.offset.second.description : "0")
+                    .font(.title3)
+                    .bold()
+                    .contentTransition(.numericText(countsDown: true))
+                Text("s")
+                    .font(.headline)
+                    .foregroundStyle(Color.appTextSecondary)
             }
         }
     }
