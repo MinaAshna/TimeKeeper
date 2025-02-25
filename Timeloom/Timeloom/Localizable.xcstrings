@@ -1,16 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "About" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
-          }
-        }
-      }
-    },
     "Add" : {
       "comment" : "Add Button",
       "extractionState" : "manual",
@@ -28,6 +18,9 @@
           }
         }
       }
+    },
+    "Add new event" : {
+
     },
     "Cancel" : {
       "comment" : "Cancel Button",
@@ -110,16 +103,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edit"
-          }
-        }
-      }
-    },
-    "Email" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email"
           }
         }
       }
@@ -239,16 +222,6 @@
         }
       }
     },
-    "Profile" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profile"
-          }
-        }
-      }
-    },
     "s" : {
       "comment" : "Second",
       "localizations" : {
@@ -266,21 +239,14 @@
         }
       }
     },
-    "Settings" : {
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indstillinger"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
-          }
-        }
-      }
+    "Save" : {
+
+    },
+    "Save changes" : {
+
+    },
+    "Save event" : {
+
     },
     "Title" : {
       "localizations" : {
