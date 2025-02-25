@@ -13,7 +13,7 @@ struct EventDetailsView: View {
     @State private var title: String = ""
     @State private var emoji: String?
     @State private var endDate: Date = .now
-    @State private var errorMessage: String?
+    @State fileprivate var errorMessage: String?
     var eventHandler: AllEventsPresenterEventHandler
     var event: Event?
     
@@ -22,7 +22,10 @@ struct EventDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 32) {
                     VStack(alignment: .leading, spacing: 12) {
-                        TextField("Enter the title of your event", text: $title, axis: .vertical)
+                        Text("Write a title for your event")
+                            .font(.title3)
+                            .bold()
+                        TextField("Title", text: $title, axis: .vertical)
                             .padding(16)
                             .frame(height: 60)
                             .background(Color.appGray)
@@ -31,10 +34,15 @@ struct EventDetailsView: View {
                     .padding(.vertical)
                     
                     VStack(alignment: .leading, spacing: 12) {
+                        Text("When will this event happen?")
+                            .font(.title3)
+                            .bold()
+                        
                         if let errorMessage = errorMessage {
                             Text(errorMessage)
                                 .foregroundStyle(Color.red)
                         }
+                        
                         DatePicker("End Date",
                                    selection: $endDate,
                                    in: Date()...)
@@ -85,7 +93,7 @@ struct EventDetailsView: View {
     
     private func save() -> Bool {
         guard endDate > .now else {
-            errorMessage = "End date should be in the future"
+            errorMessage = "Date should be in the future"
             return false
         }
         
@@ -102,11 +110,8 @@ struct EventDetailsView: View {
     }
 }
 
-#Preview {
-    let sampleEvent = Event(title: "Event1",
-                            emoji: "🤩",
-                            creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
-                            endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
+#Preview("Happy Path") {
+    let sampleEvent = Event.sampleEvents.first!
     
     
     let viewModel = AllEventsViewModel()
@@ -114,4 +119,21 @@ struct EventDetailsView: View {
 
     
     EventDetailsView(eventHandler: presenter, event: sampleEvent)
+}
+
+#Preview("Error case") {
+    let sampleEvent = Event(title: "Event1",
+                            emoji: "",
+                            creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
+                            endDate: .now)
+    
+    
+    let viewModel = AllEventsViewModel()
+    let presenter = AllEventsPresenter(viewModel: viewModel)
+
+    
+    let view = EventDetailsView(eventHandler: presenter, event: sampleEvent)
+    view.errorMessage = "Date should be in the future"
+    
+    return view
 }
