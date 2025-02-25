@@ -78,6 +78,7 @@ struct AllEventsView: View {
                     }
                     .tint(.black)
                     .padding(.trailing, 16)
+                    .accessibilityLabel("Add new event")
                 }
             }
         }
