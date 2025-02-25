@@ -123,6 +123,9 @@
         }
       }
     },
+    "Enter the title of your event" : {
+
+    },
     "Event" : {
       "comment" : "Title",
       "extractionState" : "manual",
@@ -239,16 +242,8 @@
         }
       }
     },
-    "Save" : {
-
-    },
-    "Save changes" : {
-
-    },
-    "Save event" : {
-
-    },
     "Title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -263,9 +258,6 @@
           }
         }
       }
-    },
-    "Title of your event" : {
-
     },
     "y" : {
       "comment" : "Year",
