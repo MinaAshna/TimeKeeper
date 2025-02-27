@@ -68,7 +68,7 @@ struct AllEventsView: View {
             .background(Color.appGray)
             .navigationTitle("Events")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button {
                         isPresentingNewEventView = true
                     } label: {
