@@ -13,7 +13,7 @@ struct EventDetailsView: View {
     @State private var title: String = ""
     @State private var emoji: String?
     @State private var endDate: Date = .now
-    @State fileprivate var errorMessage: String?
+    @State fileprivate var errorMessage: LocalizedStringKey?
     var eventHandler: AllEventsPresenterEventHandler
     var event: Event?
     
@@ -22,10 +22,11 @@ struct EventDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 32) {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Write a title for your event")
+                        Text(Translations.eventDetailsTitle.localizedKey)
                             .font(.title3)
                             .bold()
-                        TextField("Title", text: $title, axis: .vertical)
+                        TextField(Translations.eventDetailsTitlePlaceholder.localizedKey,
+                                  text: $title, axis: .vertical)
                             .padding(16)
                             .frame(height: 60)
                             .background(Color.appGray)
@@ -34,7 +35,7 @@ struct EventDetailsView: View {
                     .padding(.vertical)
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("When will this event happen?")
+                        Text(Translations.eventDetailsEndDate.localizedKey)
                             .font(.title3)
                             .bold()
                         
@@ -43,7 +44,7 @@ struct EventDetailsView: View {
                                 .foregroundStyle(Color.red)
                         }
                         
-                        DatePicker("End Date",
+                        DatePicker(Translations.eventDetailsEndDatePlaceholder.localizedKey,
                                    selection: $endDate,
                                    in: Date()...)
                         .datePickerStyle(.graphical)
@@ -69,7 +70,7 @@ struct EventDetailsView: View {
                             dismiss()
                         }
                     } label: {
-                        Text("Cancel")
+                        Text(Translations.cancelEvent.localizedKey)
                             .foregroundStyle(Color.red)
                     }
                 }
@@ -82,7 +83,7 @@ struct EventDetailsView: View {
                             }
                         }
                     } label: {
-                        Text(event != nil ? "Done" : "Add")
+                        Text(event != nil ? Translations.saveEvent.localizedKey : Translations.addEvent.localizedKey)
                             .bold()
                             .foregroundStyle(Color.primary)
                     }
@@ -93,7 +94,7 @@ struct EventDetailsView: View {
     
     private func save() -> Bool {
         guard endDate > .now else {
-            errorMessage = "Date should be in the future"
+            errorMessage = Translations.endDateError.localizedKey
             return false
         }
         

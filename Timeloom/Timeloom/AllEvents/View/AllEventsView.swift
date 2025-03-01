@@ -19,7 +19,7 @@ struct AllEventsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Ongoing Events") {
+                Section(Translations.ongoingEvents.localizedKey) {
                     ForEach(viewModel.ongoingEvents, id: \.id) { event in
                         Button {
                         } label: {
@@ -32,10 +32,14 @@ struct AllEventsView: View {
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                         .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
+                            Button(Translations.deleteEvent.localizedKey,
+                                   systemImage: "trash",
+                                   role: .destructive) {
                                 eventHandler.deleteEventTapped(event: event)
                             }
-                            Button("Edit", systemImage: "pencil", role: .none) {
+                            Button(Translations.editEvent.localizedKey,
+                                   systemImage: "pencil",
+                                   role: .none) {
                                 isPresentingEditView = true
                                 viewModel.editingEvent = event
                             }
@@ -44,7 +48,7 @@ struct AllEventsView: View {
                     }
                 }
                 
-                Section("Past Events") {
+                Section(Translations.pastEvents.localizedKey) {
                     ForEach(viewModel.pastEvents, id: \.id) { event in
                         Button {
                         } label: {
@@ -58,7 +62,9 @@ struct AllEventsView: View {
                         .listRowSeparator(.hidden)
                         .disabled(true)
                         .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
+                            Button(Translations.deleteEvent.localizedKey,
+                                   systemImage: "trash",
+                                   role: .destructive) {
                                 eventHandler.deleteEventTapped(event: event)
                             }
                         }
@@ -68,7 +74,7 @@ struct AllEventsView: View {
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .background(Color.appGray)
-            .navigationTitle("Events")
+            .navigationTitle(Translations.allEventsNavigationTitle.localizedKey)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -80,7 +86,7 @@ struct AllEventsView: View {
                     }
                     .tint(.black)
                     .padding(.trailing, 16)
-                    .accessibilityLabel("Add new event")
+                    .accessibilityLabel(Translations.accessibilityAddNewEvent.localizedKey)
                 }
             }
         }

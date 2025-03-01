@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import SwiftData
 
-
+@MainActor
 class DataManager {
     private let context: ModelContext
     

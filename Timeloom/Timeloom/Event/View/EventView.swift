@@ -103,7 +103,7 @@ struct EventView: View {
                     Text(viewModel.offset.year.description)
                         .font(.title3)
                         .bold()
-                    Text("y")
+                    Text(Translations.countdownYear.localizedKey)
                         .font(.headline)
                         .foregroundStyle(Color.appTextSecondary)
                 }
@@ -113,7 +113,7 @@ struct EventView: View {
                     Text(viewModel.offset.month.description)
                         .font(.title3)
                         .bold()
-                    Text("m")
+                    Text(Translations.countdownMonth.localizedKey)
                         .font(.headline)
                         .foregroundStyle(Color.appTextSecondary)
                 }
@@ -123,7 +123,7 @@ struct EventView: View {
                     Text(viewModel.offset.day.description)
                         .font(.title3)
                         .bold()
-                    Text("d")
+                    Text(Translations.countdownDay.localizedKey)
                         .font(.headline)
                         .foregroundStyle(Color.appTextSecondary)
                 }
@@ -133,7 +133,7 @@ struct EventView: View {
                     Text(viewModel.offset.hour.description)
                         .font(.title3)
                         .bold()
-                    Text("h")
+                    Text(Translations.countdownHour.localizedKey)
                         .font(.headline)
                         .foregroundStyle(Color.appTextSecondary)
                 }
@@ -143,7 +143,7 @@ struct EventView: View {
                     Text(viewModel.offset.minute.description)
                         .font(.title3)
                         .bold()
-                    Text("m")
+                    Text(Translations.countdownMinute.localizedKey)
                         .font(.headline)
                         .foregroundStyle(Color.appTextSecondary)
                 }
@@ -155,7 +155,7 @@ struct EventView: View {
                     .font(.title3)
                     .bold()
                     .contentTransition(.numericText(countsDown: true))
-                Text("s")
+                Text(Translations.countdownSecond.localizedKey)
                     .font(.headline)
                     .foregroundStyle(Color.appTextSecondary)
             }
