@@ -23,7 +23,8 @@ struct AllEventsView: View {
                     ForEach(viewModel.ongoingEvents, id: \.id) { event in
                         Button {
                         } label: {
-                            EventView(viewModel: EventViewModel(event: event), allEventHandler: eventHandler)
+                            EventView(viewModel: EventViewModel(event: event),
+                                      allEventHandler: eventHandler)
                                 .tint(.appText)
                         }
                         .tint(.black)
@@ -47,7 +48,8 @@ struct AllEventsView: View {
                     ForEach(viewModel.pastEvents, id: \.id) { event in
                         Button {
                         } label: {
-                            EventView(viewModel: EventViewModel(event: event), allEventHandler: eventHandler)
+                            EventView(viewModel: EventViewModel(event: event),
+                                      allEventHandler: eventHandler)
                                 .tint(.appText)
                         }
                         .tint(.black)
