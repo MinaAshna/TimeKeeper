@@ -24,7 +24,7 @@ struct AllEventsInteractorTests {
     
     @Test(
         "Read all events successfully",
-            .tags(.CRUD)
+        .tags(.CRUD)
     )
     func readAllEvents() async throws {
         dataManager.events = Event.sampleEvents
@@ -135,6 +135,3 @@ struct AllEventsInteractorTests {
 }
 
 
-extension Tag {
-    @Tag static var CRUD: Self
-}

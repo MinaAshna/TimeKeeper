@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-@Observable class EventViewModel {
+@Observable
+class EventViewModel {
     var event: Event
     var offset: Offset = Offset()
     var isCountDownDone: Bool = false

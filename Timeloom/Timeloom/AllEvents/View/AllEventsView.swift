@@ -23,7 +23,8 @@ struct AllEventsView: View {
                     ForEach(viewModel.ongoingEvents, id: \.id) { event in
                         Button {
                         } label: {
-                            EventView(viewModel: EventViewModel(event: event), allEventHandler: eventHandler)
+                            EventView(viewModel: EventViewModel(event: event),
+                                      allEventHandler: eventHandler)
                                 .tint(.appText)
                         }
                         .tint(.black)
@@ -47,7 +48,8 @@ struct AllEventsView: View {
                     ForEach(viewModel.pastEvents, id: \.id) { event in
                         Button {
                         } label: {
-                            EventView(viewModel: EventViewModel(event: event), allEventHandler: eventHandler)
+                            EventView(viewModel: EventViewModel(event: event),
+                                      allEventHandler: eventHandler)
                                 .tint(.appText)
                         }
                         .tint(.black)
@@ -68,7 +70,7 @@ struct AllEventsView: View {
             .background(Color.appGray)
             .navigationTitle("Events")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button {
                         isPresentingNewEventView = true
                     } label: {
@@ -78,6 +80,7 @@ struct AllEventsView: View {
                     }
                     .tint(.black)
                     .padding(.trailing, 16)
+                    .accessibilityLabel("Add new event")
                 }
             }
         }

@@ -1,16 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "About" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
-          }
-        }
-      }
-    },
     "Add" : {
       "comment" : "Add Button",
       "extractionState" : "manual",
@@ -28,6 +18,9 @@
           }
         }
       }
+    },
+    "Add new event" : {
+
     },
     "Cancel" : {
       "comment" : "Cancel Button",
@@ -110,16 +103,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edit"
-          }
-        }
-      }
-    },
-    "Email" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email"
           }
         }
       }
@@ -239,16 +222,6 @@
         }
       }
     },
-    "Profile" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profile"
-          }
-        }
-      }
-    },
     "s" : {
       "comment" : "Second",
       "localizations" : {
@@ -262,22 +235,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "s"
-          }
-        }
-      }
-    },
-    "Settings" : {
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indstillinger"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
           }
         }
       }
@@ -298,7 +255,10 @@
         }
       }
     },
-    "Title of your event" : {
+    "When will this event happen?" : {
+
+    },
+    "Write a title for your event" : {
 
     },
     "y" : {

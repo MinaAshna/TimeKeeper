@@ -25,10 +25,6 @@ extension EventPresenter: EventEventHandler {
         viewModel.offset.hour = diff.hour ?? 0
         viewModel.offset.minute = diff.minute ?? 0
         viewModel.offset.second = diff.second ?? 0
-        
-//        if viewModel.offset.year == 0, viewModel.offset.month == 0, viewModel.offset.day == 0, viewModel.offset.hour == 0, viewModel.offset.minute == 0, viewModel.offset.second == 0 {
-//            viewModel.isCountDownDone = true
-//        }
     }
     
 }

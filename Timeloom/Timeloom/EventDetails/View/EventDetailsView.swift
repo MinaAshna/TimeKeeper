@@ -13,6 +13,7 @@ struct EventDetailsView: View {
     @State private var title: String = ""
     @State private var emoji: String?
     @State private var endDate: Date = .now
+    @State fileprivate var errorMessage: String?
     var eventHandler: AllEventsPresenterEventHandler
     var event: Event?
     
@@ -21,7 +22,9 @@ struct EventDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 32) {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Title of your event")
+                        Text("Write a title for your event")
+                            .font(.title3)
+                            .bold()
                         TextField("Title", text: $title, axis: .vertical)
                             .padding(16)
                             .frame(height: 60)
@@ -31,7 +34,15 @@ struct EventDetailsView: View {
                     .padding(.vertical)
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("End Date")
+                        Text("When will this event happen?")
+                            .font(.title3)
+                            .bold()
+                        
+                        if let errorMessage = errorMessage {
+                            Text(errorMessage)
+                                .foregroundStyle(Color.red)
+                        }
+                        
                         DatePicker("End Date",
                                    selection: $endDate,
                                    in: Date()...)
@@ -48,6 +59,9 @@ struct EventDetailsView: View {
                 emoji = event?.emoji
                 endDate = event?.endDate ?? .now
             }
+            .onChange(of: endDate) {
+                errorMessage = nil
+            }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
@@ -63,8 +77,9 @@ struct EventDetailsView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         withAnimation {
-                            save()
-                            dismiss()
+                            if save() {
+                                dismiss()
+                            }
                         }
                     } label: {
                         Text(event != nil ? "Done" : "Add")
@@ -76,7 +91,12 @@ struct EventDetailsView: View {
         }
     }
     
-    private func save() {
+    private func save() -> Bool {
+        guard endDate > .now else {
+            errorMessage = "Date should be in the future"
+            return false
+        }
+        
         if let event {
             event.title = title
             event.emoji = emoji
@@ -85,14 +105,13 @@ struct EventDetailsView: View {
             let event = Event(title: title, emoji: emoji, endDate: endDate)
             eventHandler.saveEventTapped(event: event)
         }
+        
+        return true
     }
 }
 
-#Preview {
-    let sampleEvent = Event(title: "Event1",
-                            emoji: "🤩",
-                            creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
-                            endDate: Calendar.current.date(byAdding: .month, value: 1, to: Date.init())!)
+#Preview("Happy Path") {
+    let sampleEvent = Event.sampleEvents.first!
     
     
     let viewModel = AllEventsViewModel()
@@ -100,4 +119,21 @@ struct EventDetailsView: View {
 
     
     EventDetailsView(eventHandler: presenter, event: sampleEvent)
+}
+
+#Preview("Error case") {
+    let sampleEvent = Event(title: "Event1",
+                            emoji: "",
+                            creationDate: Calendar.current.date(byAdding: .month, value: -1, to: Date.init())!,
+                            endDate: .now)
+    
+    
+    let viewModel = AllEventsViewModel()
+    let presenter = AllEventsPresenter(viewModel: viewModel)
+
+    
+    let view = EventDetailsView(eventHandler: presenter, event: sampleEvent)
+    view.errorMessage = "Date should be in the future"
+    
+    return view
 }

@@ -10,10 +10,10 @@ import SwiftUI
 import SwiftData
 
 struct EventView: View {
-    var viewModel: EventViewModel
-    var eventHandler: (any EventEventHandler)? = nil
-    var allEventsHandler: (any AllEventsPresenterEventHandler)
-    
+    private var viewModel: EventViewModel
+    private var eventHandler: (any EventEventHandler)? = nil
+    private var allEventsHandler: (any AllEventsPresenterEventHandler)
+
     init(viewModel: EventViewModel, eventHandler: (any EventEventHandler)? = nil, allEventHandler: any AllEventsPresenterEventHandler) {
         self.viewModel = viewModel
         
@@ -93,8 +93,6 @@ struct EventView: View {
                 timer.upstream.connect().cancel()
             }
         }
-        
-        
     }
     
     
