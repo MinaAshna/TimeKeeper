@@ -10,13 +10,18 @@ import OSLog
 import SwiftUI
 import SwiftData
 
+@DebugDescription
 @Model
-final class Event {
+final class Event: CustomDebugStringConvertible {
     @Attribute(.unique) var id: UUID
     var title: String
     var emoji: String?
     var creationDate: Date = Date.now
     var endDate: Date
+    
+    var debugDescription: String {
+        "# Event title: \(title), End date: \(endDate)"
+    }
     
     init(title: String, emoji: String? = "", creationDate: Date = Date.now, endDate: Date) {
         self.id = UUID()
@@ -24,10 +29,10 @@ final class Event {
         self.emoji = emoji
         self.creationDate = creationDate
         self.endDate = endDate
-//        logger.notice("Event \(self.id) has been created with title: '\(self.title)'")
     }
 }
 
+#if DEBUG
 extension Event {
     @MainActor static let emptyEvent: Event = Event(title: "", endDate: .now)
     
@@ -39,4 +44,5 @@ extension Event {
                                                                              emoji: "😊",
                                                                              endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
 }
+#endif
 

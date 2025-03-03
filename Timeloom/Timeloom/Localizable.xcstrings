@@ -1,7 +1,24 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Add" : {
+    "accessibility_add_new_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilføje en ny begivenhed"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add new event"
+          }
+        }
+      }
+    },
+    "add_event" : {
       "comment" : "Add Button",
       "extractionState" : "manual",
       "localizations" : {
@@ -19,10 +36,24 @@
         }
       }
     },
-    "Add new event" : {
-
+    "all_events_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Begivenheder"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Events"
+          }
+        }
+      }
     },
-    "Cancel" : {
+    "cancel_event" : {
       "comment" : "Cancel Button",
       "extractionState" : "manual",
       "localizations" : {
@@ -40,8 +71,8 @@
         }
       }
     },
-    "d" : {
-      "comment" : "Day",
+    "countdown_day" : {
+      "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -57,7 +88,93 @@
         }
       }
     },
-    "Delete" : {
+    "countdown_hour" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "h"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "h"
+          }
+        }
+      }
+    },
+    "countdown_minute" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        }
+      }
+    },
+    "countdown_month" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        }
+      }
+    },
+    "countdown_second" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "s"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "s"
+          }
+        }
+      }
+    },
+    "countdown_year" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y"
+          }
+        }
+      }
+    },
+    "delete_event" : {
+      "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -73,25 +190,8 @@
         }
       }
     },
-    "Done" : {
-      "comment" : "Done Button",
+    "edit_event" : {
       "extractionState" : "manual",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Færdig"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Done"
-          }
-        }
-      }
-    },
-    "Edit" : {
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -107,7 +207,42 @@
         }
       }
     },
-    "End Date" : {
+    "end_date_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dato skal være i fremtiden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date should be in the future"
+          }
+        }
+      }
+    },
+    "event_details_end_date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hvornår vil denne begivenhed ske"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When will this event happen?"
+          }
+        }
+      }
+    },
+    "event_details_end_date_placeholder" : {
+      "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -118,128 +253,30 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "End Date"
+            "value" : "End date"
           }
         }
       }
     },
-    "Event" : {
-      "comment" : "Title",
+    "event_details_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Begivenhed"
+            "value" : "Skriv en titel til dit arrangement"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Event"
+            "value" : "Write a title for your event"
           }
         }
       }
     },
-    "event title" : {
+    "event_details_title_placeholder" : {
       "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Title of your event"
-          }
-        }
-      }
-    },
-    "Events" : {
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Begivenheder"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Events"
-          }
-        }
-      }
-    },
-    "h" : {
-      "comment" : "Hour",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "h"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "h"
-          }
-        }
-      }
-    },
-    "m" : {
-      "comment" : "Minute",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "m"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "m"
-          }
-        }
-      }
-    },
-    "Ongoing Events" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ongoing Events"
-          }
-        }
-      }
-    },
-    "Past Events" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Past Events"
-          }
-        }
-      }
-    },
-    "s" : {
-      "comment" : "Second",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "s"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "s"
-          }
-        }
-      }
-    },
-    "Title" : {
       "localizations" : {
         "da" : {
           "stringUnit" : {
@@ -255,25 +292,54 @@
         }
       }
     },
-    "When will this event happen?" : {
-
-    },
-    "Write a title for your event" : {
-
-    },
-    "y" : {
-      "comment" : "Year",
+    "ongoing_events" : {
+      "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "y"
+            "value" : "Løbende arrangementer"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "y"
+            "value" : "Ongoing Events"
+          }
+        }
+      }
+    },
+    "past_events" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidligere begivenheder"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Past Events"
+          }
+        }
+      }
+    },
+    "save_event" : {
+      "comment" : "Done Button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Færdig"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         }
       }

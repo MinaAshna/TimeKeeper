@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import SwiftData
 
-// In an ideal world, DataManager should be an actor, but because Event is a @Model, and @Model is not thread safe, we cannot really use it here.
+@MainActor
 class DataManager {
     private let context: ModelContext
     
@@ -21,10 +21,12 @@ class DataManager {
 extension DataManager: DataManagerProtocol {
     func delete(event: Event) {
         context.delete(event)
+        saveContext()
     }
     
     func save(event: Event) {
         context.insert(event)
+        saveContext()
     }
     
     func readAllEvents() throws -> [Event] {
