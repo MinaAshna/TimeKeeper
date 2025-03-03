@@ -32,7 +32,6 @@ final class Event: CustomDebugStringConvertible {
     }
 }
 
-#if DEBUG
 extension Event {
     @MainActor static let emptyEvent: Event = Event(title: "", endDate: .now)
     
@@ -44,5 +43,4 @@ extension Event {
                                                                              emoji: "😊",
                                                                              endDate: Calendar.current.date(byAdding: .day, value: 1, to: Date.init())!)]
 }
-#endif
 
