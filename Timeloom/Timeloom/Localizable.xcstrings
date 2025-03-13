@@ -292,6 +292,9 @@
         }
       }
     },
+    "number_of_events_%lld" : {
+
+    },
     "ongoing_events" : {
       "extractionState" : "manual",
       "localizations" : {

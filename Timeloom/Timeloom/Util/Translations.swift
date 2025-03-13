@@ -21,6 +21,7 @@ enum Translations {
     case pastEvents
     case eventDetailsTitlePlaceholder
     case eventDetailsEndDatePlaceholder
+    case numberOfEvents(Int)
     
     var localizedKey: LocalizedStringKey {
         switch self {
@@ -64,7 +65,8 @@ enum Translations {
             localizedString(key: "event_details_title_placeholder")
         case .eventDetailsEndDatePlaceholder:
             localizedString(key: "event_details_end_date_placeholder")
-            
+        case .numberOfEvents(let number):
+            LocalizedStringKey("number_of_events_\(number)")
         }
     }
     

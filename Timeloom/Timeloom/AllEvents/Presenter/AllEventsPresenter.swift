@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import CloudKit
 
 @MainActor
 class AllEventsPresenter {
@@ -17,14 +18,20 @@ class AllEventsPresenter {
         self.viewModel = viewModel
         
         do {
-            let container = try ModelContainer(for: Event.self)
+            let schema = Schema([Event.self])
+            let modelConfiguration = ModelConfiguration(
+                schema: schema,
+                isStoredInMemoryOnly: false,
+                cloudKitDatabase: .automatic  // This enables CloudKit sync
+            )
+            let container = try ModelContainer(for: schema, configurations: modelConfiguration)
             let dataManager = DataManager(container: container)
             let interactor = AllEventsInteractor(dataManager: dataManager, allEventsProtocol: self)
             self.interactor = interactor
         } catch {
             // TODO: Error handling
             print(error)
-        }
+        }        
     }
     
 }

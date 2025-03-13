@@ -13,11 +13,13 @@ import SwiftData
 @DebugDescription
 @Model
 final class Event: CustomDebugStringConvertible {
-    @Attribute(.unique) var id: UUID
-    var title: String
+    // Technically, the properties must be either optional or have a default value as it is requirement for iCloud sync. Otherwise, I wouldn't want the default values.
+    // Also, another problem is that iCloud does not support unique constraints/attributes.
+    /*@Attribute(.unique) */var id: UUID = UUID()
+    var title: String = "No title"
     var emoji: String?
     var creationDate: Date = Date.now
-    var endDate: Date
+    var endDate: Date = Date.now
     
     var debugDescription: String {
         "# Event title: \(title), End date: \(endDate)"
