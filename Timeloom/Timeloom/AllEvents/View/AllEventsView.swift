@@ -75,6 +75,9 @@ struct AllEventsView: View {
             .scrollContentBackground(.hidden)
             .background(Color.appGray)
             .navigationTitle(Translations.allEventsNavigationTitle.localizedKey)
+            .refreshable {
+                eventHandler.viewDidRefreshed()
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {

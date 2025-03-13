@@ -6,39 +6,32 @@
 //
 
 import Foundation
-import SwiftData
 import CloudKit
 
 @MainActor
 class AllEventsPresenter {
-    var viewModel: AllEventsViewModel
+    weak var viewModel: AllEventsViewModel?
     var interactor: (any AllEventsInteractorProtocol)?
     
-    init(viewModel: AllEventsViewModel) {
+    init(viewModel: AllEventsViewModel, interactor: (any AllEventsInteractorProtocol)? = nil) {
         self.viewModel = viewModel
         
-        do {
-            let schema = Schema([Event.self])
-            let modelConfiguration = ModelConfiguration(
-                schema: schema,
-                isStoredInMemoryOnly: false,
-                cloudKitDatabase: .automatic  // This enables CloudKit sync
-            )
-            let container = try ModelContainer(for: schema, configurations: modelConfiguration)
-            let dataManager = DataManager(container: container)
-            let interactor = AllEventsInteractor(dataManager: dataManager, allEventsProtocol: self)
+        if let interactor = interactor {
             self.interactor = interactor
-        } catch {
-            // TODO: Error handling
-            print(error)
-        }        
+        } else {
+            self.interactor = AllEventsInteractor(allEventsProtocol: self)
+        }
     }
     
 }
 
 extension AllEventsPresenter: AllEventsPresenterEventHandler {
     func viewDidAppear() {
-        interactor?.readAllEvents()
+        readAllEvents()
+    }
+    
+    func viewDidRefreshed() {
+        readAllEvents()
     }
     
     func deleteEventTapped(event: Event) {
@@ -52,6 +45,8 @@ extension AllEventsPresenter: AllEventsPresenterEventHandler {
     }
     
     func clusterEvents() {
+        guard let viewModel = viewModel else { return }
+        
         viewModel.ongoingEvents = viewModel.events.filter { $0.endDate > .now && $0.creationDate < .now }
         viewModel.pastEvents = viewModel.events.filter { $0.endDate < .now }
     }
@@ -59,11 +54,19 @@ extension AllEventsPresenter: AllEventsPresenterEventHandler {
 
 extension AllEventsPresenter: AllEventsPresenterProtocol {
     func listOfEvents(events: [Event]) {
+        guard let viewModel = viewModel else { return }
+
         viewModel.events = events
         clusterEvents()
     }
     
     func failedToFetchEvents() {
         // TODO: UI for error cases
+    }
+}
+
+extension AllEventsPresenter {
+    private func readAllEvents() {
+        interactor?.readAllEvents()
     }
 }

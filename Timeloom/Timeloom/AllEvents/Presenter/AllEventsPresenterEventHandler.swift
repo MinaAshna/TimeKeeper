@@ -10,6 +10,7 @@ import Foundation
 @MainActor
 protocol AllEventsPresenterEventHandler {
     func viewDidAppear()
+    func viewDidRefreshed() 
     func deleteEventTapped(event: Event)
     func saveEventTapped(event: Event)
     func clusterEvents()
